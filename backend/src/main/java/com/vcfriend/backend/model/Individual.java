@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table(name = "individual")
@@ -13,7 +14,7 @@ public class Individual {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    // リレーション（家族情報を非表示にする）
+    // Relationship to Family (hidden in JSON)
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "family_id")
     @JsonIgnore
@@ -31,7 +32,11 @@ public class Individual {
     @Column(name = "clinical_diagnosis")
     private String clinicalDiagnosis;
 
-    // === コンストラクタ ===
+    // ✅ List of genetic variants for this individual
+    @OneToMany(mappedBy = "individual", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<Variant> variants;
+
+    // === Constructors ===
     public Individual() {}
 
     public Individual(FamilyEntity family, String name, LocalDate dateOfBirth, String sex, String clinicalDiagnosis) {
@@ -42,7 +47,7 @@ public class Individual {
         this.clinicalDiagnosis = clinicalDiagnosis;
     }
 
-    // === ゲッター＆セッター ===
+    // === Getters & Setters ===
     public Long getId() {
         return id;
     }
@@ -85,5 +90,13 @@ public class Individual {
 
     public void setClinicalDiagnosis(String clinicalDiagnosis) {
         this.clinicalDiagnosis = clinicalDiagnosis;
+    }
+
+    public List<Variant> getVariants() {
+        return variants;
+    }
+
+    public void setVariants(List<Variant> variants) {
+        this.variants = variants;
     }
 }

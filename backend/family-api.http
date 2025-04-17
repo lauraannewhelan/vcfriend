@@ -10,67 +10,19 @@ Content-Type: application/json
 GET http://localhost:8080/families
 
 
-### Create Individual 1
-POST http://localhost:8080/individuals
-Content-Type: application/json
 
-{
-  "name": "Alice Whelan",
-  "dateOfBirth": "1985-04-10",
-  "sex": "Female",
-  "clinicalDiagnosis": "Hypertension",
-  "familyId": 1
-}
-
-### Create Individual 2
-POST http://localhost:8080/individuals
-Content-Type: application/json
-
-{
-  "name": "Brian Whelan",
-  "dateOfBirth": "1983-08-22",
-  "sex": "Male",
-  "clinicalDiagnosis": "Diabetes",
-  "familyId": 1
-}
-
-### Create Individual 3
-POST http://localhost:8080/individuals
-Content-Type: application/json
-
-{
-  "name": "Chloe Whelan",
-  "dateOfBirth": "2010-03-01",
-  "sex": "Female",
-  "clinicalDiagnosis": "Asthma",
-  "familyId": 1
-}
-
-### Create Individual 4
-POST http://localhost:8080/individuals
-Content-Type: application/json
-
-{
-  "name": "David Whelan",
-  "dateOfBirth": "2012-12-15",
-  "sex": "Male",
-  "clinicalDiagnosis": "Healthy",
-  "familyId": 1
-}
-
-### Create Individual 5
-POST http://localhost:8080/individuals
-Content-Type: application/json
-
-{
-  "name": "Emma Whelan",
-  "dateOfBirth": "2014-06-20",
-  "sex": "Female",
-  "clinicalDiagnosis": "Healthy",
-  "familyId": 1
-}
-
-### Retrieve All Individuals
+### Get All Individuals
 GET http://localhost:8080/individuals
 Accept: application/json
 
+### Add inividual
+POST http://localhost:8080/individuals
+Content-Type: application/json
+
+{
+  "name": "John Whelan",
+  "dateOfBirth": "1990-03-15",
+  "sex": "Male",
+  "clinicalDiagnosis": "Condition X",
+  "familyId": 1
+}
