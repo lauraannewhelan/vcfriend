@@ -1,92 +1,143 @@
-// File: src/main/java/com/vcfriend/backend/service/VcfService.java
-
 package com.vcfriend.backend.service;
 
-import com.vcfriend.backend.model.Individual;
-import com.vcfriend.backend.model.Variant;
-import com.vcfriend.backend.repository.IndividualRepository;
-import com.vcfriend.backend.repository.VariantRepository;
-import org.springframework.beans.factory.annotation.Value;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.vcfriend.backend.model.*;
+import com.vcfriend.backend.repository.*;
+import htsjdk.variant.variantcontext.VariantContext;
+import htsjdk.variant.vcf.VCFFileReader;
+import htsjdk.variant.vcf.VCFHeader;
+import jakarta.annotation.PostConstruct;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.*;
-import java.nio.file.*;
-import java.util.Optional;
+import java.io.File;
+import java.io.IOException;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 @Service
 public class VcfService {
 
-    @Value("${vcf.upload.dir}")
-    private String uploadDir;
+    private static final String VCF_DIRECTORY = "uploads/vcf";
 
-    private final IndividualRepository individualRepository;
-    private final VariantRepository variantRepository;
+    @Autowired
+    private IndividualRepository individualRepository;
 
-    public VcfService(IndividualRepository individualRepository, VariantRepository variantRepository) {
-        this.individualRepository = individualRepository;
-        this.variantRepository = variantRepository;
-    }
+    @Autowired
+    private SampleRepository sampleRepository;
 
-    public void saveAndParseVcf(MultipartFile file) throws IOException {
-        // Step 1: Save file to disk
-        Path uploadPath = Paths.get(uploadDir);
-        if (!Files.exists(uploadPath)) {
-            Files.createDirectories(uploadPath);
+    @Autowired
+    private VcfFileRepository vcfFileRepository;
+
+    @Autowired
+    private VariantRepository variantRepository;
+
+    private final ObjectMapper objectMapper = new ObjectMapper();
+
+    // =========================
+    // ① Auto-import at startup
+    // =========================
+    @PostConstruct
+    public void importExistingVcfFiles() {
+        System.out.println("🔍 VCF Auto-Import Service is watching: " + new File(VCF_DIRECTORY).getAbsolutePath());
+
+        File folder = new File(VCF_DIRECTORY);
+        if (!folder.exists() || !folder.isDirectory()) {
+            System.err.println("❌ VCF upload folder does not exist: " + folder.getAbsolutePath());
+            return;
         }
 
-        String originalFileName = file.getOriginalFilename();
-        Path filePath = uploadPath.resolve(originalFileName);
-        Files.copy(file.getInputStream(), filePath, StandardCopyOption.REPLACE_EXISTING);
-
-        // Step 2: Extract individualId from file name
-        Long individualId = Long.parseLong(originalFileName.replace(".vcf", ""));
-        Optional<Individual> individualOpt = individualRepository.findById(individualId);
-
-        if (individualOpt.isEmpty()) {
-            throw new RuntimeException("Individual with ID " + individualId + " not found");
-        }
-
-        Individual individual = individualOpt.get();
-
-        // Step 3: Parse and store variants
-        parseAndStoreVariants(filePath.toFile(), individual);
-    }
-
-    private void parseAndStoreVariants(File vcfFile, Individual individual) {
-        try (BufferedReader reader = new BufferedReader(new FileReader(vcfFile))) {
-            String line;
-            while ((line = reader.readLine()) != null) {
-                if (line.startsWith("#")) continue;
-
-                String[] fields = line.split("\t");
-                if (fields.length < 5) continue;
-
-                String chrom = fields[0];
-                int pos = Integer.parseInt(fields[1]);
-                String variantId = fields[2];
-                String ref = fields[3];
-                String alt = fields[4];
-
-                Variant variant = new Variant(chrom, pos, variantId, ref, alt, individual);
-                variantRepository.save(variant);
+        for (File file : Objects.requireNonNull(folder.listFiles())) {
+            if (file.getName().toLowerCase().endsWith(".vcf")) {
+                try {
+                    saveAndParseVcf(file);
+                } catch (Exception e) {
+                    System.err.println("❌ Failed to import VCF file: " + file.getName());
+                    e.printStackTrace();
+                }
             }
+        }
+    }
+
+    // =============================================
+    // ② VCF Parsing from File (used by auto-import)
+    // =============================================
+    public void saveAndParseVcf(File vcfFileOnDisk) {
+        System.out.println("📥 Importing: " + vcfFileOnDisk.getName());
+
+        String filename = vcfFileOnDisk.getName();
+        String idPart = filename.split("\\.")[0]; // e.g. "4" from "4.vcf"
+
+        Long individualId;
+        try {
+            individualId = Long.parseLong(idPart);
+        } catch (NumberFormatException e) {
+            throw new RuntimeException("⚠️ Cannot determine individual ID from filename: " + filename);
+        }
+
+        Individual individual = individualRepository.findById(individualId)
+                .orElseThrow(() -> new RuntimeException("⚠️ No individual found for ID: " + individualId));
+
+        // 🧬 Create Sample
+        Sample sample = new Sample();
+        sample.setSampleLabel("Sample_" + individualId + "_" + System.currentTimeMillis());
+        sample.setTissueType("Unknown");
+        sample.setIndividual(individual);
+        sampleRepository.save(sample);
+
+        // 🧾 Create VcfFile record
+        VcfFile vcf = new VcfFile();
+        vcf.setFilename(filename);
+        vcf.setReferenceGenome("hg19"); // Or extract from header
+        vcf.setUploadDate(LocalDateTime.now());
+        vcf.setSample(sample);
+        vcfFileRepository.save(vcf);
+
+        // 🧬 Parse and save Variants
+        List<Variant> variants = new ArrayList<>();
+
+        try (VCFFileReader reader = new VCFFileReader(vcfFileOnDisk, false)) {
+            VCFHeader header = reader.getFileHeader();
+            for (VariantContext ctx : reader) {
+                Variant var = new Variant();
+                var.setChrom(ctx.getContig());
+                var.setPos(ctx.getStart());
+                var.setRef(ctx.getReference().getBaseString());
+                var.setAlt(ctx.getAlternateAlleles().toString());
+                var.setQual(ctx.hasLog10PError() ? String.valueOf(ctx.getPhredScaledQual()) : "NA");
+                var.setFilter(ctx.isFiltered() ? String.join(",", ctx.getFilters()) : "PASS");
+
+                try {
+                    String jsonInfo = objectMapper.writeValueAsString(ctx.getAttributes());
+                    var.setInfo(jsonInfo);
+                } catch (JsonProcessingException e) {
+                    throw new RuntimeException("❌ Failed to convert INFO to JSON", e);
+                }
+
+                var.setVcfFile(vcf);
+                variants.add(var);
+            }
+        }
+
+        variantRepository.saveAll(variants);
+
+        System.out.println("✅ Imported " + variants.size() + " variants from " + filename);
+    }
+
+    // ======================================================
+    // ③ Support REST upload (e.g. Swagger, Postman, Frontend)
+    // ======================================================
+    public void saveAndParseVcf(MultipartFile multipartFile) {
+        try {
+            File tempFile = File.createTempFile("upload_", ".vcf");
+            multipartFile.transferTo(tempFile);
+            saveAndParseVcf(tempFile); // call the file-based method
         } catch (IOException e) {
-            throw new RuntimeException("Failed to parse VCF file: " + e.getMessage());
+            throw new RuntimeException("❌ Failed to handle uploaded VCF", e);
         }
     }
-    // Addition to VcfService.java
-    public void saveAndParseVcf(File file) throws IOException {
-        String fileName = file.getName();
-        Long individualId = Long.parseLong(fileName.replace(".vcf", ""));
-        Optional<Individual> individualOpt = individualRepository.findById(individualId);
-
-        if (individualOpt.isEmpty()) {
-            throw new RuntimeException("Individual with ID " + individualId + " not found");
-        }
-
-        Individual individual = individualOpt.get();
-        parseAndStoreVariants(file, individual);
-    }
-
 }

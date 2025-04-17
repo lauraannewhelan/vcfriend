@@ -1,6 +1,7 @@
 package com.vcfriend.backend.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
@@ -14,40 +15,20 @@ public class Individual {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    // Relationship to Family (hidden in JSON)
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "family_id")
-    @JsonIgnore
+    @JsonBackReference("family-individuals")
     private FamilyEntity family;
 
-    @Column(name = "name")
     private String name;
-
-    @Column(name = "date_of_birth")
     private LocalDate dateOfBirth;
-
-    @Column(name = "sex")
     private String sex;
-
-    @Column(name = "clinical_diagnosis")
     private String clinicalDiagnosis;
 
-    // ✅ List of genetic variants for this individual
-    @OneToMany(mappedBy = "individual", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<Variant> variants;
+    @OneToMany(mappedBy = "individual", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JsonManagedReference("individual-samples")
+    private List<Sample> samples;
 
-    // === Constructors ===
-    public Individual() {}
-
-    public Individual(FamilyEntity family, String name, LocalDate dateOfBirth, String sex, String clinicalDiagnosis) {
-        this.family = family;
-        this.name = name;
-        this.dateOfBirth = dateOfBirth;
-        this.sex = sex;
-        this.clinicalDiagnosis = clinicalDiagnosis;
-    }
-
-    // === Getters & Setters ===
     public Long getId() {
         return id;
     }
@@ -92,11 +73,11 @@ public class Individual {
         this.clinicalDiagnosis = clinicalDiagnosis;
     }
 
-    public List<Variant> getVariants() {
-        return variants;
+    public List<Sample> getSamples() {
+        return samples;
     }
 
-    public void setVariants(List<Variant> variants) {
-        this.variants = variants;
+    public void setSamples(List<Sample> samples) {
+        this.samples = samples;
     }
 }

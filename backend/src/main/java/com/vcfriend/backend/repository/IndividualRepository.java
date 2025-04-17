@@ -4,11 +4,5 @@ import com.vcfriend.backend.model.Individual;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
-
 @Repository
-public interface IndividualRepository extends JpaRepository<Individual, Long> {
-
-    // ✅ Add this method
-    List<Individual> findByFamilyId(Long familyId);
-}
+public interface IndividualRepository extends JpaRepository<Individual, Long> {}
