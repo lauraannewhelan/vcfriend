@@ -74,3 +74,9 @@ Content-Type: application/json
 GET http://localhost:8080/individuals
 Accept: application/json
 
+### Retrieve All Individuals by family
+GET http://localhost:8080/individuals/family/2
+Accept: application/json
+
+
+

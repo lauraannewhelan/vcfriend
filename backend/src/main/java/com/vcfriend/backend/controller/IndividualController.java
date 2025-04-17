@@ -14,6 +14,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+// Part 1: Controller for Individual endpoints
 @RestController
 @RequestMapping("/individuals")
 public class IndividualController {
@@ -24,21 +25,15 @@ public class IndividualController {
     @Autowired
     private FamilyRepository familyRepository;
 
-    // Get all individuals as DTOs (including familyId)
+    // Part 2: Get all individuals
     @GetMapping
     public List<IndividualDTO> getAllIndividuals() {
-        List<Individual> individuals = individualRepository.findAll();
-        return individuals.stream().map(individual -> new IndividualDTO(
-                individual.getId(),
-                individual.getName(),
-                individual.getDateOfBirth(),
-                individual.getSex(),
-                individual.getClinicalDiagnosis(),
-                individual.getFamily() != null ? individual.getFamily().getId() : null
-        )).collect(Collectors.toList());
+        return individualRepository.findAll().stream()
+                .map(this::toDTO)
+                .collect(Collectors.toList());
     }
 
-    // Create a new individual with associated family
+    // Part 3: Create new individual
     @PostMapping
     public ResponseEntity<?> createIndividual(@RequestBody IndividualRequest request) {
         Optional<FamilyEntity> familyOpt = familyRepository.findById(request.getFamilyId());
@@ -57,17 +52,39 @@ public class IndividualController {
         individual.setFamily(family);
 
         Individual saved = individualRepository.save(individual);
-        return ResponseEntity.ok(new IndividualDTO(
-                saved.getId(),
-                saved.getName(),
-                saved.getDateOfBirth(),
-                saved.getSex(),
-                saved.getClinicalDiagnosis(),
-                saved.getFamily().getId()
-        ));
+        return ResponseEntity.ok(toDTO(saved));
     }
 
-    // DTO for incoming individual creation request
+    // ✅ Part 4: NEW – Get individuals by family ID
+    @GetMapping("/family/{familyId}")
+    public ResponseEntity<?> getIndividualsByFamilyId(@PathVariable Long familyId) {
+        Optional<FamilyEntity> familyOpt = familyRepository.findById(familyId);
+
+        if (familyOpt.isEmpty()) {
+            return ResponseEntity.status(404).body("Family not found with ID " + familyId);
+        }
+
+        List<IndividualDTO> individuals = individualRepository.findAll().stream()
+                .filter(i -> i.getFamily() != null && i.getFamily().getId().equals(familyId))
+                .map(this::toDTO)
+                .collect(Collectors.toList());
+
+        return ResponseEntity.ok(individuals);
+    }
+
+    // Part 5: Map entity to DTO
+    private IndividualDTO toDTO(Individual individual) {
+        return new IndividualDTO(
+                individual.getId(),
+                individual.getName(),
+                individual.getDateOfBirth(),
+                individual.getSex(),
+                individual.getClinicalDiagnosis(),
+                individual.getFamily() != null ? individual.getFamily().getId() : null
+        );
+    }
+
+    // Part 6: Request DTO
     public static class IndividualRequest {
         private String name;
         private String dateOfBirth;
