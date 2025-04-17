@@ -1,6 +1,6 @@
 package com.vcfriend.backend.controller;
 
-import com.vcfriend.backend.model.Family;
+import com.vcfriend.backend.model.FamilyEntity;
 import com.vcfriend.backend.repository.FamilyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -16,13 +16,13 @@ public class FamilyController {
 
     // GET /families
     @GetMapping
-    public List<Family> getAllFamilies() {
+    public List<FamilyEntity> getAllFamilies() {
         return familyRepository.findAll();
     }
 
     // POST /families
     @PostMapping
-    public Family createFamily(@RequestBody Family family) {
+    public FamilyEntity createFamily(@RequestBody FamilyEntity family) {
         return familyRepository.save(family);
     }
 }
