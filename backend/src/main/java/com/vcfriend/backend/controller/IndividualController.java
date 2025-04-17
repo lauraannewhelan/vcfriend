@@ -1,5 +1,6 @@
 package com.vcfriend.backend.controller;
 
+import com.vcfriend.backend.dto.IndividualDTO;
 import com.vcfriend.backend.model.FamilyEntity;
 import com.vcfriend.backend.model.Individual;
 import com.vcfriend.backend.repository.FamilyRepository;
@@ -8,10 +9,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
-// パート1：Individualエンドポイントのコントローラー
 @RestController
 @RequestMapping("/individuals")
 public class IndividualController {
@@ -22,13 +24,21 @@ public class IndividualController {
     @Autowired
     private FamilyRepository familyRepository;
 
-    // パート2：全個人を取得する
+    // Get all individuals as DTOs (including familyId)
     @GetMapping
-    public List<Individual> getAllIndividuals() {
-        return individualRepository.findAll();
+    public List<IndividualDTO> getAllIndividuals() {
+        List<Individual> individuals = individualRepository.findAll();
+        return individuals.stream().map(individual -> new IndividualDTO(
+                individual.getId(),
+                individual.getName(),
+                individual.getDateOfBirth(),
+                individual.getSex(),
+                individual.getClinicalDiagnosis(),
+                individual.getFamily() != null ? individual.getFamily().getId() : null
+        )).collect(Collectors.toList());
     }
 
-    // パート3：個人を新規作成する
+    // Create a new individual with associated family
     @PostMapping
     public ResponseEntity<?> createIndividual(@RequestBody IndividualRequest request) {
         Optional<FamilyEntity> familyOpt = familyRepository.findById(request.getFamilyId());
@@ -41,16 +51,23 @@ public class IndividualController {
 
         Individual individual = new Individual();
         individual.setName(request.getName());
-        individual.setDateOfBirth(request.getDateOfBirth());
+        individual.setDateOfBirth(LocalDate.parse(request.getDateOfBirth()));
         individual.setSex(request.getSex());
         individual.setClinicalDiagnosis(request.getClinicalDiagnosis());
         individual.setFamily(family);
 
         Individual saved = individualRepository.save(individual);
-        return ResponseEntity.ok(saved);
+        return ResponseEntity.ok(new IndividualDTO(
+                saved.getId(),
+                saved.getName(),
+                saved.getDateOfBirth(),
+                saved.getSex(),
+                saved.getClinicalDiagnosis(),
+                saved.getFamily().getId()
+        ));
     }
 
-    // パート4：リクエスト用DTO
+    // DTO for incoming individual creation request
     public static class IndividualRequest {
         private String name;
         private String dateOfBirth;
