@@ -1,5 +1,3 @@
-// File: src/main/java/com/vcfriend/backend/controller/VcfController.java
-
 package com.vcfriend.backend.controller;
 
 import com.vcfriend.backend.service.VcfService;
@@ -10,6 +8,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 @RestController
 @RequestMapping("/api/vcf")
+@CrossOrigin(origins = "*")
 public class VcfController {
 
     private final VcfService vcfService;
