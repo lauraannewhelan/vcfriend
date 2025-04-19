@@ -1,14 +1,10 @@
 package com.vcfriend.backend.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
-
-import java.time.LocalDateTime;
-import java.util.List;
 
 @Entity
 @Table(name = "vcf_file")
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class VcfFile {
 
     @Id
@@ -17,31 +13,36 @@ public class VcfFile {
 
     private String filename;
     private String referenceGenome;
-    private LocalDateTime uploadDate = LocalDateTime.now();
+    private String uploadDate;
 
+    // ✅ Back reference to Sample (matches Sample.java)
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "sample_id")
-    @com.fasterxml.jackson.annotation.JsonBackReference
+    @JsonBackReference(value = "sample-vcffiles")
     private Sample sample;
 
-    @OneToMany(mappedBy = "vcfFile", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @com.fasterxml.jackson.annotation.JsonManagedReference
-    private List<Variant> variants;
-
+    // Getters and setters...
     public Long getId() { return id; }
 
+    public void setId(Long id) { this.id = id; }
+
     public String getFilename() { return filename; }
+
     public void setFilename(String filename) { this.filename = filename; }
 
     public String getReferenceGenome() { return referenceGenome; }
+
     public void setReferenceGenome(String referenceGenome) { this.referenceGenome = referenceGenome; }
 
-    public LocalDateTime getUploadDate() { return uploadDate; }
-    public void setUploadDate(LocalDateTime uploadDate) { this.uploadDate = uploadDate; }
+    public String getUploadDate() { return uploadDate; }
 
-    public Sample getSample() { return sample; }
-    public void setSample(Sample sample) { this.sample = sample; }
+    public void setUploadDate(String uploadDate) { this.uploadDate = uploadDate; }
 
-    public List<Variant> getVariants() { return variants; }
-    public void setVariants(List<Variant> variants) { this.variants = variants; }
+    public Sample getSample() {
+        return sample;
+    }
+
+    public void setSample(Sample sample) {
+        this.sample = sample;
+    }
 }
