@@ -1,24 +1,16 @@
-// src/App.js
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import 'bootstrap/dist/css/bootstrap.min.css';
-
-import FamiliesPage from './pages/FamiliesPage';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import HomePage from './pages/HomePage';
 import IndividualPage from './pages/IndividualPage';
-import VariantPage from './pages/VariantPage';
 
-const App = () => {
+function App() {
     return (
         <Router>
             <Routes>
-                <Route path="/" element={<FamiliesPage />} />
-                <Route path="/families" element={<FamiliesPage />} />
-                <Route path="/individuals/:individualId" element={<IndividualPage />} />
-                <Route path="/vcf/:vcfFileId/variants" element={<VariantPage />} />
-                <Route path="*" element={<div className="container mt-5">404 Not Found</div>} />
+                <Route path="/" element={<HomePage />} />
+                <Route path="/individuals/:id" element={<IndividualPage />} />
             </Routes>
         </Router>
     );
-};
+}
 
 export default App;

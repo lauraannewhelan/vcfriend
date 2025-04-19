@@ -1,7 +1,7 @@
 package com.vcfriend.backend.controller;
 
-import com.vcfriend.backend.model.Individual;
-import com.vcfriend.backend.repository.IndividualRepository;
+import com.vcfriend.backend.model.Dataset;
+import com.vcfriend.backend.repository.DatasetRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -9,21 +9,21 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/individuals")
+@RequestMapping("/api/datasets")
 @CrossOrigin(origins = "*")
-public class IndividualController {
+public class DatasetController {
 
     @Autowired
-    private IndividualRepository individualRepository;
+    private DatasetRepository datasetRepository;
 
     @GetMapping
-    public List<Individual> getAll() {
-        return individualRepository.findAll();
+    public List<Dataset> getAll() {
+        return datasetRepository.findAll();
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Individual> getById(@PathVariable Long id) {
-        return individualRepository.findById(id)
+    public ResponseEntity<Dataset> getById(@PathVariable String id) {
+        return datasetRepository.findById(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }

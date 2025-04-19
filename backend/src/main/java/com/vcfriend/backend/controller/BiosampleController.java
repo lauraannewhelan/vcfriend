@@ -1,7 +1,7 @@
 package com.vcfriend.backend.controller;
 
-import com.vcfriend.backend.model.Individual;
-import com.vcfriend.backend.repository.IndividualRepository;
+import com.vcfriend.backend.model.Biosample;
+import com.vcfriend.backend.repository.BiosampleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -9,21 +9,21 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/individuals")
+@RequestMapping("/api/biosamples")
 @CrossOrigin(origins = "*")
-public class IndividualController {
+public class BiosampleController {
 
     @Autowired
-    private IndividualRepository individualRepository;
+    private BiosampleRepository biosampleRepository;
 
     @GetMapping
-    public List<Individual> getAll() {
-        return individualRepository.findAll();
+    public List<Biosample> getAll() {
+        return biosampleRepository.findAll();
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Individual> getById(@PathVariable Long id) {
-        return individualRepository.findById(id)
+    public ResponseEntity<Biosample> getById(@PathVariable String id) {
+        return biosampleRepository.findById(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
