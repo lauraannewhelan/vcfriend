@@ -5,9 +5,11 @@ import com.vcfriend.backend.model.Individual;
 import com.vcfriend.backend.model.Pedigree;
 import com.vcfriend.backend.repository.IndividualRepository;
 import com.vcfriend.backend.repository.PedigreeRepository;
+import htsjdk.variant.vcf.VCFFileReader;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.File;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -62,5 +64,32 @@ public class IndividualService {
 
     public List<Individual> testRepoFindByPedigree(String pedigreeId) {
         return individualRepository.findByPedigree_PedigreeId(pedigreeId);
+    }
+
+    public void save(Individual individual) {
+        individualRepository.save(individual);
+    }
+
+    public List<String> getVariantsFromVCF(Long individualId) {
+        String rootPath = System.getProperty("user.dir");
+        File vcf = new File(rootPath + "/vcf_storage/" + individualId + ".vcf");
+
+        System.out.println("📍 Working directory: " + rootPath);
+        System.out.println("📂 Looking for VCF at: " + vcf.getAbsolutePath());
+
+        if (!vcf.exists()) {
+            System.out.println("❌ File not found");
+            return List.of("No VCF file found.");
+        }
+
+        try (VCFFileReader reader = new VCFFileReader(vcf, false)) {
+            return reader.iterator()
+                    .stream()
+                    .map(variant -> variant.getContig() + "\t" + variant.getStart() + "\t" +
+                            variant.getReference().getBaseString() + " → " +
+                            variant.getAlternateAlleles().stream()
+                                    .map(Object::toString).collect(Collectors.joining(",")))
+                    .collect(Collectors.toList());
+        }
     }
 }
