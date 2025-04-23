@@ -1,89 +1,119 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import './Home.css';
 
-// Define the type for Pedigree
 interface Pedigree {
-    pedigree_id: string;
+    pedigreeId: string; // ✅ FIXED
     disease: string;
     numSubjects: number;
-    members: string;
 }
 
 const Home = () => {
-    const [searchQuery, setSearchQuery] = useState('');               // State for search input
-    const [results, setResults] = useState<Pedigree[]>([]);            // State for storing search results
-    const [error, setError] = useState<string | null>(null);           // To store any errors
+    const [searchQuery, setSearchQuery] = useState('');
+    const [results, setResults] = useState<Pedigree[]>([]);
+    const [individuals, setIndividuals] = useState<any[]>([]);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState<string | null>(null);
+    const navigate = useNavigate();
 
-    // Fetch pedigrees based on the search query (pedigree_id)
     const handleSearch = async () => {
-        if (searchQuery) {
-            try {
-                const response = await axios.get(
-                    `http://localhost:8080/api/pedigrees/search?query=${searchQuery}`  // Fetch using query parameter
-                );
-
-                // If we have valid data
-                if (response.data) {
-                    setResults([response.data]);  // Store the results in state
-                    setError(null);                // Clear any previous errors
-                } else {
-                    setError('No families found for this search.');
-                    setResults([]);
-                }
-            } catch (err) {
-                setError('Failed to fetch pedigrees.');
+        if (!searchQuery) return;
+        setLoading(true);
+        try {
+            const response = await axios.get(`http://localhost:8080/api/pedigrees/search?query=${searchQuery}`);
+            if (response.data) {
+                setResults([response.data]);
+                setError(null);
+            } else {
+                setError('No families found for this search.');
                 setResults([]);
+                setIndividuals([]);
             }
+        } catch (err) {
+            setError('Failed to fetch pedigrees.');
+            setResults([]);
+            setIndividuals([]);
         }
+        setLoading(false);
     };
+
+    useEffect(() => {
+        const fetchIndividuals = async () => {
+            if (results.length > 0) {
+                try {
+                    const res = await axios.get(
+                        `http://localhost:8080/api/individuals/pedigrees/${results[0].pedigreeId}` // ✅ FIXED
+                    );
+                    console.log("📦 Raw individuals from API:", res.data);
+                    const normalized = res.data.map((ind: any) => ({
+                        id: ind.id,
+                        name: ind.name,
+                        clinicalDiagnosis: ind.clinicalDiagnosis,
+                        dateOfBirth: ind.dateOfBirth,
+                        proband: ind.proband,
+                    }));
+                    console.log("✅ Normalized individuals:", normalized);
+                    setIndividuals(normalized);
+                } catch (err) {
+                    console.error("❌ Failed to fetch individuals:", err);
+                    setIndividuals([]);
+                }
+            }
+        };
+        fetchIndividuals();
+    }, [results]);
 
     return (
         <div className="home-container">
-            <div className="content-wrapper">
-                <h1 className="main-title">Welcome to VCFriend</h1>
-                <p className="subheading">Your secure and user-friendly web application for genomic data analysis.</p>
-                <p className="description">
-                    Explore, interpret, and analyze your VCF files with ease in a clinically relevant context.
-                </p>
+            <h1 className="main-title">Welcome to VCFriend</h1>
+            <p>Your secure and user-friendly web application for genomic data analysis.</p>
 
-                {/* Search Section for Families */}
-                <div className="search-family">
-                    <input
-                        type="text"
-                        placeholder="Search for Families by Pedigree ID"
-                        value={searchQuery}
-                        onChange={(e) => setSearchQuery(e.target.value)} // Update state on change
-                    />
-                    <button onClick={handleSearch}>Search Families</button>
-                </div>
-
-                {/* Show error message if any */}
-                {error && <p className="error-message">{error}</p>}
-
-                {/* Show results if any */}
-                {results.length > 0 && (
-                    <div>
-                        <h3>Pedigree Results</h3>
-                        <ul>
-                            {results.map((pedigree, index) => (
-                                <li key={index}>
-                                    <strong>{pedigree.pedigree_id}</strong>: {pedigree.disease} ({pedigree.numSubjects} subjects)
-                                    <br />
-                                    <strong>Members:</strong>{' '}
-                                    <span>
-                                        {pedigree.members
-                                            .replace('[', '')
-                                            .replace(']', '')
-                                            .replace(/"/g, '')
-                                            .split(', ')
-                                            .join(', ')}
-                                    </span>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-                )}
+            <div className="search-family mt-4 mb-4">
+                <input
+                    type="text"
+                    placeholder="Search for Families by Pedigree ID"
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                />
+                <button onClick={handleSearch} disabled={loading}>
+                    {loading ? 'Searching...' : 'Search Families'}
+                </button>
             </div>
+
+            {error && <p className="text-red-600">{error}</p>}
+
+            {results.length > 0 && (
+                <>
+                    <h3>Pedigree Results</h3>
+                    <p>
+                        <strong>{results[0].pedigreeId}</strong>: {results[0].disease} ({results[0].numSubjects} subjects)
+                    </p>
+
+                    <h3 className="mt-6">Members</h3>
+
+                    {individuals.length === 0 ? (
+                        <p className="text-gray-600">No individuals found for this pedigree.</p>
+                    ) : (
+                        <div className="grid grid-cols-3 gap-4 mt-4">
+                            {individuals
+                                .filter(ind => ind.name && ind.clinicalDiagnosis && ind.dateOfBirth)
+                                .map((ind) => (
+                                    <div
+                                        key={ind.id}
+                                        className="p-4 border rounded shadow hover:bg-gray-100 cursor-pointer"
+                                        onClick={() => navigate(`/individuals/${ind.id}`)}
+                                    >
+                                        <h4 className="text-lg font-semibold">{ind.name}</h4>
+                                        <p>{ind.clinicalDiagnosis}</p>
+                                        <p className="text-sm text-gray-500">{ind.dateOfBirth}</p>
+                                        <p className="text-sm">{ind.proband ? 'Proband' : 'Not proband'}</p>
+                                    </div>
+                                ))}
+                        </div>
+                    )}
+                </>
+            )}
         </div>
     );
 };

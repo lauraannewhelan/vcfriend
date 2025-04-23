@@ -1,50 +1,35 @@
-// src/pages/Individual.tsx
 import React, { useEffect, useState } from 'react';
-import { getIndividuals } from '../api/getIndividuals';  // Import the function
+import axios from 'axios';
+import { useParams } from 'react-router-dom';
 
 const IndividualPage = () => {
-    const [individuals, setIndividuals] = useState<any[]>([]);
+    const { id } = useParams();
+    const [individual, setIndividual] = useState<any>(null);
 
     useEffect(() => {
-        const fetchIndividuals = async () => {
-            const data = await getIndividuals();
-            setIndividuals(data); // Set the fetched data to state
+        const fetchData = async () => {
+            console.log("👀 Fetching individual with ID:", id);
+            const res = await axios.get(`http://localhost:8080/api/individuals/${id}`);
+            const data = res.data;
+            setIndividual({
+                ...data,
+                clinicalDiagnosis: data.clinical_diagnosis,
+                dateOfBirth: data.date_of_birth,
+            });
         };
+        fetchData();
+    }, [id]);
 
-        fetchIndividuals(); // Fetch the individuals on mount
-    }, []);
+    if (!individual) return <p>Loading individual profile...</p>;
 
     return (
-        <div>
-            <h2>Individuals</h2>
-            <table>
-                <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Clinical Diagnosis</th>
-                    <th>Proband</th>
-                </tr>
-                </thead>
-                <tbody>
-                {individuals.length === 0 ? (
-                    <tr>
-                        <td colSpan={4}>No individuals found</td>
-                    </tr>
-                ) : (
-                    individuals.map((individual) => (
-                        <tr key={individual.id}>
-                            <td>{individual.id}</td>
-                            <td>{individual.name}</td>
-                            <td>{individual.clinicalDiagnosis}</td>
-                            <td>{individual.proband}</td>
-                        </tr>
-                    ))
-                )}
-                </tbody>
-            </table>
+        <div className="p-6 max-w-md mx-auto border rounded shadow">
+            <h2 className="text-2xl font-bold mb-4">{individual.name}</h2>
+            <p><strong>Clinical Diagnosis:</strong> {individual.clinicalDiagnosis}</p>
+            <p><strong>Date of Birth:</strong> {individual.dateOfBirth}</p>
+            <p><strong>Proband:</strong> {individual.proband ? 'Yes' : 'No'}</p>
         </div>
     );
 };
 
-export default IndividualPage;  // Ensure export here
+export default IndividualPage;
