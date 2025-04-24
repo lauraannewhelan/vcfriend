@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import './Home.css';  // Import CSS for styling
 
 // Define the type for Pedigree
 interface Pedigree {
@@ -40,7 +41,7 @@ const Home = () => {
     return (
         <div className="home-container">
             <div className="content-wrapper">
-                <h1 className="main-title">Welcome to VCFriend</h1>
+                <h1 className="main-title">Welcome to VCFriend 2.0</h1>
                 <p className="subheading">Your secure and user-friendly web application for genomic data analysis.</p>
                 <p className="description">
                     Explore, interpret, and analyze your VCF files with ease in a clinically relevant context.
