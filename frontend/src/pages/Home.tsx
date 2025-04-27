@@ -66,17 +66,9 @@ const Home = () => {
 
     return (
         <div className="home-container">
-<<<<<<< HEAD
-            <div className="content-wrapper">
-                <h1 className="main-title">Welcome to VCFriend 2.0</h1>
-                <p className="subheading">Your secure and user-friendly web application for genomic data analysis.</p>
-                <p className="description">
-                    Explore, interpret, and analyze your VCF files with ease in a clinically relevant context.
-                </p>
-=======
-            <h1 className="main-title">Welcome to VCFriend</h1>
-            <p>Your secure and user-friendly web application for genomic data analysis.</p>
->>>>>>> d095bf452a6e76bef6403b974694b9c466e7715e
+        <h1 className="main-title">Welcome to VCFriend</h1>
+        <p className="centered-text">Your secure and user-friendly web application for genomic data analysis.</p>
+
 
             <div className="search-family mt-4 mb-4">
                 <input
