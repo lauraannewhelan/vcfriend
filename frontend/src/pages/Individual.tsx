@@ -1,50 +1,75 @@
-// src/pages/Individual.tsx
 import React, { useEffect, useState } from 'react';
-import { getIndividuals } from '../api/getIndividuals';  // Import the function
+import axios from 'axios';
+import { useParams } from 'react-router-dom';
+import EditIndividualForm from '../components/EditIndividualForm';
+import './Individual.css'; // Import the styling
 
 const IndividualPage = () => {
-    const [individuals, setIndividuals] = useState<any[]>([]);
+    const { id } = useParams();
+    const [individual, setIndividual] = useState<any>(null);
+    const [editing, setEditing] = useState(false);
+    const [variants, setVariants] = useState<string[]>([]);
 
+    // Fetch individual details
     useEffect(() => {
-        const fetchIndividuals = async () => {
-            const data = await getIndividuals();
-            setIndividuals(data); // Set the fetched data to state
+        const fetchData = async () => {
+            const res = await axios.get(`http://localhost:8080/api/individuals/${id}`);
+            setIndividual(res.data);
         };
+        fetchData();
+    }, [id]);
 
-        fetchIndividuals(); // Fetch the individuals on mount
-    }, []);
+    // Fetch VCF variants
+    useEffect(() => {
+        const fetchVariants = async () => {
+            try {
+                const res = await axios.get(`http://localhost:8080/api/individuals/${id}/vcf-variants`);
+                setVariants(res.data);
+            } catch (error) {
+                setVariants(["Failed to load variants or VCF not found."]);
+            }
+        };
+        if (id) fetchVariants();
+    }, [id]);
+
+    const handleSave = async () => {
+        const res = await axios.get(`http://localhost:8080/api/individuals/${id}`);
+        setIndividual(res.data);
+        setEditing(false);
+    };
+
+    if (!individual) return <p>Loading individual profile...</p>;
 
     return (
-        <div>
-            <h2>Individuals</h2>
-            <table>
-                <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Clinical Diagnosis</th>
-                    <th>Proband</th>
-                </tr>
-                </thead>
-                <tbody>
-                {individuals.length === 0 ? (
-                    <tr>
-                        <td colSpan={4}>No individuals found</td>
-                    </tr>
+        <div className="individual-container">
+            <h2>{individual.name}</h2>
+
+            {!editing ? (
+                <>
+                    <p><strong>Clinical Diagnosis:</strong> {individual.clinicalDiagnosis}</p>
+                    <p><strong>Date of Birth:</strong> {individual.dateOfBirth}</p>
+                    <p><strong>Proband:</strong> {individual.proband ? 'Yes' : 'No'}</p>
+                    <button onClick={() => setEditing(true)}>Edit</button>
+                </>
+            ) : (
+                <EditIndividualForm individual={individual} onSave={handleSave} />
+            )}
+
+            {/* VCF Variants */}
+            <div className="variants-section">
+                <h3>VCF Variants</h3>
+                {variants.length === 0 ? (
+                    <p>No variants found.</p>
                 ) : (
-                    individuals.map((individual) => (
-                        <tr key={individual.id}>
-                            <td>{individual.id}</td>
-                            <td>{individual.name}</td>
-                            <td>{individual.clinicalDiagnosis}</td>
-                            <td>{individual.proband}</td>
-                        </tr>
-                    ))
+                    <div className="variant-list">
+                        {variants.map((v, i) => (
+                            <div key={i}>{v}</div>
+                        ))}
+                    </div>
                 )}
-                </tbody>
-            </table>
+            </div>
         </div>
     );
 };
 
-export default IndividualPage;  // Ensure export here
+export default IndividualPage;
