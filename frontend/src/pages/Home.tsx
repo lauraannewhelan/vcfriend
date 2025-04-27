@@ -66,8 +66,9 @@ const Home = () => {
 
     return (
         <div className="home-container">
-            <h1 className="main-title">Welcome to VCFriend</h1>
-            <p>Your secure and user-friendly web application for genomic data analysis.</p>
+        <h1 className="main-title">Welcome to VCFriend</h1>
+        <p className="centered-text">Your secure and user-friendly web application for genomic data analysis.</p>
+
 
             <div className="search-family mt-4 mb-4">
                 <input
