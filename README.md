@@ -1,5 +1,3 @@
-+++markdown
-
 # VCFriend
 
 **VCFriend** is a secure, user-friendly web application designed for genomic data analysis. It facilitates the upload and parsing of VCF files, enabling users to explore variants, manage shortlists, and analyze individual genomic profiles. The application is built with a React frontend and a Spring Boot backend, ensuring a seamless and robust user experience.
@@ -170,4 +168,3 @@ This project is licensed under the MIT License.
 ## 📬 Contact
 
 For questions or feedback, reach out via [github.com/lauraannewhelan](https://github.com/lauraannewhelan)
-+++
