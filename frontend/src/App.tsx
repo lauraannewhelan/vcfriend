@@ -1,5 +1,3 @@
-// src/App.tsx
-
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
@@ -11,10 +9,12 @@ import VariantBrowser from './pages/VariantBrowser';
 import Shortlist from './pages/Shortlist';
 
 import ProtectedRoute from './components/ProtectedRoute';
+import Navbar from './components/Navbar'; // ✅ Add this import
 
 function App() {
     return (
         <Router>
+            <Navbar /> {/* ✅ Add this line to render Logout button */}
             <Routes>
                 <Route path="/" element={<Login />} />
 
