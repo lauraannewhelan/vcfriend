@@ -1,0 +1,68 @@
+.individual-container {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f8f9fa;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    max-width: 720px;
+    margin: 40px auto;
+    background: white;
+}
+
+.individual-container h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+.individual-container p {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.individual-container button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 6px;
+    border: none;
+    margin-top: 10px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.individual-container button:hover {
+    background-color: #0056b3;
+}
+
+.variants-section {
+    margin-top: 40px;
+}
+
+.variants-section h3 {
+    font-size: 1.25rem;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.variant-list {
+    background-color: #f0f4f8;
+    padding: 15px;
+    border-radius: 6px;
+    max-height: 300px;
+    overflow-y: auto;
+    font-family: monospace;
+    font-size: 0.9rem;
+    border: 1px solid #ddd;
+}
+
+.variant-list div {
+    padding: 6px 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.variant-list div:last-child {
+    border-bottom: none;
+}
