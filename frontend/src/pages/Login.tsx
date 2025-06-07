@@ -2,8 +2,8 @@
 
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
-import { useAuth } from '../context/AuthContext'; // ✅ Use auth context
+import axios from '../api/axios';
+import { useAuth } from '../context/AuthContext';
 import './Login.css';
 
 export default function Login() {
@@ -11,13 +11,14 @@ export default function Login() {
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const navigate = useNavigate();
-    const { login } = useAuth(); // ✅ Get login method from context
+    const { login } = useAuth();
 
     const handleLogin = async (e: React.FormEvent) => {
         e.preventDefault();
+        setError('');
 
         try {
-            const response = await axios.post('http://localhost:8080/auth/login', {
+            const response = await axios.post('/auth/login', {
                 username,
                 password,
             });
@@ -25,14 +26,18 @@ export default function Login() {
             console.log('🧪 Login response:', response.data);
 
             if (response.data === true) {
-                login(); // ✅ Set auth state
+                login(); // Update auth context (if you track session state)
                 navigate('/home');
             } else {
-                setError('Invalid username or password');
+                setError('Invalid username or password.');
             }
-        } catch (err) {
-            console.error('Login error:', err);
-            setError('Login failed. Please check server connection.');
+        } catch (err: any) {
+            if (err.response?.status === 401) {
+                setError('Unauthorized. Please check your credentials.');
+            } else {
+                console.error('Login error:', err);
+                setError('Login failed. Server unavailable or misconfigured.');
+            }
         }
     };
 

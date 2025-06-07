@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import axios from '../api/axios'; // ✅ Use configured instance
 import { useNavigate } from 'react-router-dom';
 import './Home.css';
 
 interface Pedigree {
-    pedigreeId: string; // ✅ FIXED
+    pedigreeId: string;
     disease: string;
     numSubjects: number;
 }
@@ -21,7 +21,10 @@ const Home = () => {
         if (!searchQuery) return;
         setLoading(true);
         try {
-            const response = await axios.get(`http://localhost:8080/api/pedigrees/search?query=${searchQuery}`);
+            const response = await axios.get(`/api/pedigrees/search`, {
+                params: { query: searchQuery },
+            });
+
             if (response.data) {
                 setResults([response.data]);
                 setError(null);
@@ -31,6 +34,7 @@ const Home = () => {
                 setIndividuals([]);
             }
         } catch (err) {
+            console.error('❌ Failed to fetch pedigrees:', err);
             setError('Failed to fetch pedigrees.');
             setResults([]);
             setIndividuals([]);
@@ -42,10 +46,9 @@ const Home = () => {
         const fetchIndividuals = async () => {
             if (results.length > 0) {
                 try {
-                    const res = await axios.get(
-                        `http://localhost:8080/api/individuals/pedigrees/${results[0].pedigreeId}` // ✅ FIXED
-                    );
-                    console.log("📦 Raw individuals from API:", res.data);
+                    const res = await axios.get(`/api/individuals/pedigrees/${results[0].pedigreeId}`);
+                    console.log('📦 Raw individuals from API:', res.data);
+
                     const normalized = res.data.map((ind: any) => ({
                         id: ind.id,
                         name: ind.name,
@@ -53,10 +56,11 @@ const Home = () => {
                         dateOfBirth: ind.dateOfBirth,
                         proband: ind.proband,
                     }));
-                    console.log("✅ Normalized individuals:", normalized);
+
+                    console.log('✅ Normalized individuals:', normalized);
                     setIndividuals(normalized);
                 } catch (err) {
-                    console.error("❌ Failed to fetch individuals:", err);
+                    console.error('❌ Failed to fetch individuals:', err);
                     setIndividuals([]);
                 }
             }

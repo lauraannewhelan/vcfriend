@@ -1,12 +1,14 @@
 // src/api/axios.ts
 import axios from "axios";
 
-// Create an Axios instance with default configuration
+const baseHost = `http://${window.location.hostname}:8080`;
+
 const axiosInstance = axios.create({
-    baseURL: "http://localhost:8080/api", // Your backend URL
+    baseURL: baseHost,
     headers: {
         "Content-Type": "application/json",
     },
+    withCredentials: true,
 });
 
 export default axiosInstance;
