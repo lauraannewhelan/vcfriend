@@ -25,9 +25,11 @@ com/vcfriend/backend/mapper/IndividualMapper.class
 com/vcfriend/backend/model/PhenotypicFeature.class
 com/vcfriend/backend/model/VcfFile.class
 com/vcfriend/backend/service/IndividualService.class
+com/vcfriend/backend/controller/UserController.class
 com/vcfriend/backend/model/Run.class
 com/vcfriend/backend/repository/BiosampleRepository.class
 com/vcfriend/backend/model/Sample.class
+com/vcfriend/backend/service/UserService.class
 com/vcfriend/backend/service/GenomicVariantService.class
 com/vcfriend/backend/model/Individual.class
 com/vcfriend/backend/model/GenomicVariant.class
@@ -35,14 +37,13 @@ com/vcfriend/backend/dto/PedigreeDTO.class
 com/vcfriend/backend/mapper/IndividualMapper$1.class
 com/vcfriend/backend/model/Exposure.class
 com/vcfriend/backend/controller/RunController.class
-com/vcfriend/backend/config/CorsConfig$1.class
 com/vcfriend/backend/model/Cohort.class
+com/vcfriend/backend/service/CustomUserDetailsService.class
 com/vcfriend/backend/controller/GenomicVariantController.class
 com/vcfriend/backend/model/Intervention.class
 com/vcfriend/backend/repository/GenomicVariantRepository.class
 com/vcfriend/backend/config/SecurityConfig.class
 com/vcfriend/backend/dto/PhenotypicFeatureDTO.class
-com/vcfriend/backend/config/CorsConfig.class
 com/vcfriend/backend/controller/BiosampleController.class
 com/vcfriend/backend/model/Biosample.class
 com/vcfriend/backend/repository/CohortRepository.class
@@ -50,7 +51,9 @@ com/vcfriend/backend/controller/PedigreeController.class
 com/vcfriend/backend/model/Pedigree.class
 com/vcfriend/backend/dto/IndividualDTO.class
 com/vcfriend/backend/dto/BeaconTermDTO.class
+com/vcfriend/backend/config/StartupConfig.class
 com/vcfriend/backend/controller/DatasetController.class
 com/vcfriend/backend/repository/AnalysisRepository.class
 com/vcfriend/backend/controller/IndividualController.class
 com/vcfriend/backend/model/Disease.class
+com/vcfriend/backend/controller/UserController$RegisterRequest.class

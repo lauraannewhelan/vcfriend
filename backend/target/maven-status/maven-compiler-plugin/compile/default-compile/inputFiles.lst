@@ -3,6 +3,7 @@
 /Users/laurawhelan/IdeaProjects/vcfriend/backend/src/main/java/com/vcfriend/backend/model/Exposure.java
 /Users/laurawhelan/IdeaProjects/vcfriend/backend/src/main/java/com/vcfriend/backend/dto/PhenotypicFeatureDTO.java
 /Users/laurawhelan/IdeaProjects/vcfriend/backend/src/main/java/com/vcfriend/backend/repository/BiosampleRepository.java
+/Users/laurawhelan/IdeaProjects/vcfriend/backend/src/main/java/com/vcfriend/backend/controller/UserController.java
 /Users/laurawhelan/IdeaProjects/vcfriend/backend/src/main/java/com/vcfriend/backend/dto/TreatmentDTO.java
 /Users/laurawhelan/IdeaProjects/vcfriend/backend/src/main/java/com/vcfriend/backend/repository/IndividualRepository.java
 /Users/laurawhelan/IdeaProjects/vcfriend/backend/src/main/java/com/vcfriend/backend/dto/BeaconTermDTO.java
@@ -18,9 +19,9 @@
 /Users/laurawhelan/IdeaProjects/vcfriend/backend/src/main/java/com/vcfriend/backend/model/Intervention.java
 /Users/laurawhelan/IdeaProjects/vcfriend/backend/src/main/java/com/vcfriend/backend/repository/GenomicVariantRepository.java
 /Users/laurawhelan/IdeaProjects/vcfriend/backend/src/main/java/com/vcfriend/backend/model/Treatment.java
-/Users/laurawhelan/IdeaProjects/vcfriend/backend/src/main/java/com/vcfriend/backend/config/CorsConfig.java
 /Users/laurawhelan/IdeaProjects/vcfriend/backend/src/main/java/com/vcfriend/backend/dto/FamilyDTO.java
 /Users/laurawhelan/IdeaProjects/vcfriend/backend/src/main/java/com/vcfriend/backend/dto/IndividualDTO.java
+/Users/laurawhelan/IdeaProjects/vcfriend/backend/src/main/java/com/vcfriend/backend/config/StartupConfig.java
 /Users/laurawhelan/IdeaProjects/vcfriend/backend/src/main/java/com/vcfriend/backend/model/User.java
 /Users/laurawhelan/IdeaProjects/vcfriend/backend/src/main/java/com/vcfriend/backend/controller/GenomicVariantController.java
 /Users/laurawhelan/IdeaProjects/vcfriend/backend/src/main/java/com/vcfriend/backend/model/Pedigree.java
@@ -35,6 +36,7 @@
 /Users/laurawhelan/IdeaProjects/vcfriend/backend/src/main/java/com/vcfriend/backend/model/Analysis.java
 /Users/laurawhelan/IdeaProjects/vcfriend/backend/src/main/java/com/vcfriend/backend/dto/ExposureDTO.java
 /Users/laurawhelan/IdeaProjects/vcfriend/backend/src/main/java/com/vcfriend/backend/controller/AuthController.java
+/Users/laurawhelan/IdeaProjects/vcfriend/backend/src/main/java/com/vcfriend/backend/service/UserService.java
 /Users/laurawhelan/IdeaProjects/vcfriend/backend/src/main/java/com/vcfriend/backend/dto/DiseaseDTO.java
 /Users/laurawhelan/IdeaProjects/vcfriend/backend/src/main/java/com/vcfriend/backend/model/Sample.java
 /Users/laurawhelan/IdeaProjects/vcfriend/backend/src/main/java/com/vcfriend/backend/repository/RunRepository.java
@@ -44,6 +46,7 @@
 /Users/laurawhelan/IdeaProjects/vcfriend/backend/src/main/java/com/vcfriend/backend/model/Measurement.java
 /Users/laurawhelan/IdeaProjects/vcfriend/backend/src/main/java/com/vcfriend/backend/model/Cohort.java
 /Users/laurawhelan/IdeaProjects/vcfriend/backend/src/main/java/com/vcfriend/backend/model/Biosample.java
+/Users/laurawhelan/IdeaProjects/vcfriend/backend/src/main/java/com/vcfriend/backend/service/CustomUserDetailsService.java
 /Users/laurawhelan/IdeaProjects/vcfriend/backend/src/main/java/com/vcfriend/backend/dto/MeasurementDTO.java
 /Users/laurawhelan/IdeaProjects/vcfriend/backend/src/main/java/com/vcfriend/backend/controller/DatasetController.java
 /Users/laurawhelan/IdeaProjects/vcfriend/backend/src/main/java/com/vcfriend/backend/util/JsonStringConverter.java

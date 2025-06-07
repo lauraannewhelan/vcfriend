@@ -1,6 +1,7 @@
 package com.vcfriend.backend.service;
 
 import com.vcfriend.backend.dto.IndividualDTO;
+import com.vcfriend.backend.mapper.IndividualMapper;
 import com.vcfriend.backend.model.Individual;
 import com.vcfriend.backend.model.Pedigree;
 import com.vcfriend.backend.repository.IndividualRepository;
@@ -22,6 +23,9 @@ public class IndividualService {
     @Autowired
     private PedigreeRepository pedigreeRepository;
 
+    @Autowired
+    private IndividualMapper individualMapper;
+
     public List<IndividualDTO> getByPedigreeId(String pedigreeId) {
         List<Individual> individuals = individualRepository.findByPedigree_PedigreeId(pedigreeId);
 
@@ -30,15 +34,7 @@ public class IndividualService {
             System.out.println("👤 " + i.getName() + " (ID " + i.getId() + ")");
         }
 
-        return individuals.stream().map(ind -> {
-            IndividualDTO dto = new IndividualDTO();
-            dto.setId(ind.getId());
-            dto.setName(ind.getName());
-            dto.setClinicalDiagnosis(ind.getClinicalDiagnosis());
-            dto.setDateOfBirth(ind.getDateOfBirth().toString());
-            dto.setProband(ind.getProband());
-            return dto;
-        }).collect(Collectors.toList());
+        return individualMapper.toDTOList(individuals);
     }
 
     public Individual getById(Long id) {
