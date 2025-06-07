@@ -1,0 +1,53 @@
+/* src/components/Navbar.css */
+
+.navbar-wrapper {
+    width: 100%;
+    background-color: #fff;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 16px 0;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+}
+
+.navbar-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
+    text-align: left; /* ✅ Force left alignment */
+}
+
+.navbar-left {
+    display: flex;
+    gap: 24px;
+}
+
+.navbar-left a {
+    text-decoration: none;
+    color: #2a4b7c;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: color 0.2s;
+}
+
+.navbar-left a:hover {
+    color: #1e375e;
+}
+
+.logout-button {
+    background-color: #2a4b7c;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.logout-button:hover {
+    background-color: #1e375e;
+}
