@@ -1,0 +1,568 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="ee961eb9-92c0-4c83-aee1-5d8e65f1066b" name="Changes" comment="had to recompile whole thing..." />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
+    <option name="UPDATE_TYPE" value="REBASE" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;lauraannewhelan&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/lauraannewhelan/vcfriend.git&quot;,
+    &quot;accountId&quot;: &quot;f8697f3d-a8d4-480f-8a6e-6b5766c2daae&quot;
+  }
+}</component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="2vqw11xRcL8TxmyyPyjif4vohdh" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Application.VcfriendApplication.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.family-api | Add inividual.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.family-api | Create Another Individual in Family ID 1.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.family-api | Create Individual 1.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.family-api | Create Individual 2.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.family-api | Create Individual 3.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.family-api | Create Individual 4.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.family-api | Create Individual 5.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.family-api | Create Individual in Family ID 1.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.family-api | Create a new family.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.family-api | Create an individual (linked to family ID 1).executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.family-api | Create another individual.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.family-api | Get All Individuals.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.family-api | Get all families.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.family-api | Get all individuals#1.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.family-api | Get all individuals#2.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.family-api | Get all individuals.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.family-api | Retrieve All Individuals by family.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.family-api | Retrieve All Individuals.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.family-api | updating.executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Spring Boot.VcfriendApplication.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/laurawhelan/IdeaProjects/vcfriend/vcf_storage&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/laurawhelan/IdeaProjects/vcfriend/frontend/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.vcfriend.backend.controller" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/vcf_storage" />
+      <recent name="$PROJECT_DIR$/backend/src/main/java/com/vcfriend/backend/vcf_storage" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/backend/src" />
+      <recent name="$PROJECT_DIR$/backend" />
+      <recent name="$PROJECT_DIR$/uploads/vcf" />
+      <recent name="$PROJECT_DIR$/frontend/src" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Spring Boot.VcfriendApplication">
+    <configuration name="family-api | Create Individual 4" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/backend/family-api.http" executionIdentifier="Create Individual 4" index="6" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="family-api | Create Individual 5" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/backend/family-api.http" executionIdentifier="Create Individual 5" index="7" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="family-api | Get all families" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/backend/family-api.http" executionIdentifier="Get all families" index="2" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="family-api | Retrieve All Individuals by family" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/backend/family-api.http" executionIdentifier="Retrieve All Individuals by family" index="9" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="family-api | Retrieve All Individuals" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/backend/family-api.http" executionIdentifier="Retrieve All Individuals" index="8" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="VcfriendApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="vcfriend" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.vcfriend.backend.VcfriendApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="HTTP Request.family-api | Get all families" />
+        <item itemvalue="HTTP Request.family-api | Retrieve All Individuals by family" />
+        <item itemvalue="HTTP Request.family-api | Retrieve All Individuals" />
+        <item itemvalue="HTTP Request.family-api | Create Individual 5" />
+        <item itemvalue="HTTP Request.family-api | Create Individual 4" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.23774.435" />
+        <option value="bundled-js-predefined-d6986cc7102b-f27c65a3e318-JavaScript-IU-251.23774.435" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="StructureViewState">
+    <option name="selectedTab" value="Logical" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ee961eb9-92c0-4c83-aee1-5d8e65f1066b" name="Changes" comment="" />
+      <created>1744885693727</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1744885693727</updated>
+      <workItem from="1744885694828" duration="11154000" />
+      <workItem from="1744906844708" duration="1577000" />
+      <workItem from="1744908614429" duration="30494000" />
+      <workItem from="1745404725723" duration="13516000" />
+      <workItem from="1745500897549" duration="2289000" />
+      <workItem from="1748196611925" duration="914000" />
+      <workItem from="1748197672060" duration="11866000" />
+      <workItem from="1749058685272" duration="2169000" />
+      <workItem from="1749060905212" duration="11964000" />
+      <workItem from="1749301882073" duration="572000" />
+      <workItem from="1749302508937" duration="4384000" />
+    </task>
+    <task id="LOCAL-00001" summary="adding initial files">
+      <option name="closed" value="true" />
+      <created>1744885758845</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1744885758845</updated>
+    </task>
+    <task id="LOCAL-00002" summary="getting up and running - connection between springboot and postgreSQL database">
+      <option name="closed" value="true" />
+      <created>1744895760973</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1744895760973</updated>
+    </task>
+    <task id="LOCAL-00003" summary="getting up and running - connection between springboot and postgreSQL database">
+      <option name="closed" value="true" />
+      <created>1744895772606</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1744895772606</updated>
+    </task>
+    <task id="LOCAL-00004" summary="family API">
+      <option name="closed" value="true" />
+      <created>1744895974001</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1744895974001</updated>
+    </task>
+    <task id="LOCAL-00005" summary="trying to add individuals">
+      <option name="closed" value="true" />
+      <created>1744898617450</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1744898617450</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Adding and viewing families and individuals is working">
+      <option name="closed" value="true" />
+      <created>1744899470801</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1744899470801</updated>
+    </task>
+    <task id="LOCAL-00007" summary="starting to work with front end">
+      <option name="closed" value="true" />
+      <created>1744905427158</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1744905427158</updated>
+    </task>
+    <task id="LOCAL-00008" summary="starting to work with front end">
+      <option name="closed" value="true" />
+      <created>1744905488181</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1744905488181</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Adding and viewing families and individuals is working">
+      <option name="closed" value="true" />
+      <created>1744926200925</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1744926200926</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Adding and viewing families and individuals is working">
+      <option name="closed" value="true" />
+      <created>1744926302039</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1744926302039</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Adding and viewing families and individuals is working">
+      <option name="closed" value="true" />
+      <created>1744926314748</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1744926314748</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Adding and viewing families and individuals is working">
+      <option name="closed" value="true" />
+      <created>1744926350633</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1744926350633</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Adding and viewing families and individuals is working">
+      <option name="closed" value="true" />
+      <created>1744926356801</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1744926356801</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Merge remote-tracking branch 'origin/main'">
+      <option name="closed" value="true" />
+      <created>1744926402960</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1744926402960</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Merge remote-tracking branch 'origin/main'">
+      <option name="closed" value="true" />
+      <created>1744926419013</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1744926419013</updated>
+    </task>
+    <task id="LOCAL-00016" summary="deleting frontend">
+      <option name="closed" value="true" />
+      <created>1744926548509</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1744926548509</updated>
+    </task>
+    <task id="LOCAL-00017" summary="working now, things are structured. Auto adding variants from VCF file.">
+      <option name="closed" value="true" />
+      <created>1744931949349</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1744931949349</updated>
+    </task>
+    <task id="LOCAL-00018" summary="working now, things are structured. Auto adding variants from VCF file.">
+      <option name="closed" value="true" />
+      <created>1744931957290</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1744931957290</updated>
+    </task>
+    <task id="LOCAL-00019" summary="working now, things are structured. Auto adding variants from VCF file.">
+      <option name="closed" value="true" />
+      <created>1744931990392</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1744931990392</updated>
+    </task>
+    <task id="LOCAL-00020" summary="front end established and appropriate npm versions">
+      <option name="closed" value="true" />
+      <created>1744972114326</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1744972114326</updated>
+    </task>
+    <task id="LOCAL-00021" summary="changing everything to beacon">
+      <option name="closed" value="true" />
+      <created>1745087918028</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1745087918028</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Beacon implemented, pedigree search working">
+      <option name="closed" value="true" />
+      <created>1745098526250</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1745098526250</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Beacon implemented, pedigree search working">
+      <option name="closed" value="true" />
+      <created>1745438107164</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1745438107164</updated>
+    </task>
+    <task id="LOCAL-00024" summary="styling and member card now working">
+      <option name="closed" value="true" />
+      <created>1745443612008</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1745443612008</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Displaying variants now, and clinical info is editable">
+      <option name="closed" value="true" />
+      <created>1745447317258</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1745447317258</updated>
+    </task>
+    <task id="LOCAL-00026" summary="VCF styled better for prototype">
+      <option name="closed" value="true" />
+      <created>1745447867711</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1745447867711</updated>
+    </task>
+    <task id="LOCAL-00027" summary="adding login feature, with session store. Probably should update this to something more functional">
+      <option name="closed" value="true" />
+      <created>1748200676472</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1748200676472</updated>
+    </task>
+    <task id="LOCAL-00028" summary="adding login feature, with session store. Probably should update this to something more functional">
+      <option name="closed" value="true" />
+      <created>1748200693289</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1748200693289</updated>
+    </task>
+    <task id="LOCAL-00029" summary="added navbar with logout">
+      <option name="closed" value="true" />
+      <created>1748286023827</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1748286023827</updated>
+    </task>
+    <task id="LOCAL-00030" summary="added navbar with logout">
+      <option name="closed" value="true" />
+      <created>1748286058073</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1748286058073</updated>
+    </task>
+    <task id="LOCAL-00031" summary="added navbar with logout">
+      <option name="closed" value="true" />
+      <created>1749060805120</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1749060805120</updated>
+    </task>
+    <task id="LOCAL-00032" summary="added navbar with logout">
+      <option name="closed" value="true" />
+      <created>1749060837008</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1749060837008</updated>
+    </task>
+    <task id="LOCAL-00033" summary="springboot security finally working properly with axios">
+      <option name="closed" value="true" />
+      <created>1749304372213</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1749304372215</updated>
+    </task>
+    <task id="LOCAL-00034" summary="springboot security finally working properly with axios">
+      <option name="closed" value="true" />
+      <created>1749304397262</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1749304397262</updated>
+    </task>
+    <task id="LOCAL-00035" summary="Merge remote-tracking branch 'origin/main'&#10;&#10;# Conflicts:&#10;#&#9;backend/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst&#10;#&#9;backend/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst">
+      <option name="closed" value="true" />
+      <created>1749304438990</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1749304438990</updated>
+    </task>
+    <task id="LOCAL-00036" summary="Merge remote-tracking branch 'origin/main'&#10;&#10;# Conflicts:&#10;#&#9;backend/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst&#10;#&#9;backend/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst">
+      <option name="closed" value="true" />
+      <created>1749305460171</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1749305460171</updated>
+    </task>
+    <task id="LOCAL-00037" summary="Merge remote-tracking branch 'origin/main'">
+      <option name="closed" value="true" />
+      <created>1749305484989</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1749305484989</updated>
+    </task>
+    <task id="LOCAL-00038" summary="Merge remote-tracking branch 'origin/main'">
+      <option name="closed" value="true" />
+      <created>1749305504970</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1749305504970</updated>
+    </task>
+    <task id="LOCAL-00039" summary="Merge remote-tracking branch 'origin/main'">
+      <option name="closed" value="true" />
+      <created>1749305513648</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1749305513648</updated>
+    </task>
+    <task id="LOCAL-00040" summary="Merge remote-tracking branch 'origin/main'">
+      <option name="closed" value="true" />
+      <created>1749305523925</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1749305523925</updated>
+    </task>
+    <task id="LOCAL-00041" summary="had to recompile whole thing...">
+      <option name="closed" value="true" />
+      <created>1749306974344</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1749306974344</updated>
+    </task>
+    <task id="LOCAL-00042" summary="had to recompile whole thing...">
+      <option name="closed" value="true" />
+      <created>1749307017687</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1749307017687</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="e3801dbf-402a-40e4-9adc-9502bfaa12ae" value="TOOL_WINDOW" />
+      </map>
+    </option>
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+        <entry key="e3801dbf-402a-40e4-9adc-9502bfaa12ae">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="adding initial files" />
+    <MESSAGE value="getting up and running - connection between springboot and postgreSQL database" />
+    <MESSAGE value="family API" />
+    <MESSAGE value="trying to add individuals" />
+    <MESSAGE value="starting to work with front end" />
+    <MESSAGE value="going back to previous commit" />
+    <MESSAGE value="Adding and viewing families and individuals is working" />
+    <MESSAGE value="deleting frontend" />
+    <MESSAGE value="working now, things are structured. Auto adding variants from VCF file." />
+    <MESSAGE value="front end established and appropriate npm versions" />
+    <MESSAGE value="changing everything to beacon" />
+    <MESSAGE value="Beacon implemented, pedigree search working" />
+    <MESSAGE value="styling and member card now working" />
+    <MESSAGE value="Displaying variants now, and clinical info is editable" />
+    <MESSAGE value="VCF styled better for prototype" />
+    <MESSAGE value="adding login feature, with session store. Probably should update this to something more functional" />
+    <MESSAGE value="added navbar with logout" />
+    <MESSAGE value="springboot security finally working properly with axios" />
+    <MESSAGE value="Merge remote-tracking branch 'origin/main'&#10;&#10;# Conflicts:&#10;#&#9;backend/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst&#10;#&#9;backend/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" />
+    <MESSAGE value="Merge remote-tracking branch 'origin/main'" />
+    <MESSAGE value="had to recompile whole thing..." />
+    <option name="LAST_COMMIT_MESSAGE" value="had to recompile whole thing..." />
+  </component>
+</project>
