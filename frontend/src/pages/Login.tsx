@@ -1,5 +1,3 @@
-// src/pages/Login.tsx
-
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from '../api/axios';
@@ -11,26 +9,29 @@ export default function Login() {
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const navigate = useNavigate();
-    const { login } = useAuth();
+    const { login } = useAuth(); // assumes AuthContext handles session state
 
     const handleLogin = async (e: React.FormEvent) => {
         e.preventDefault();
         setError('');
 
+        const formData = new URLSearchParams();
+        formData.append('username', username);
+        formData.append('password', password);
+
         try {
-            const response = await axios.post('/auth/login', {
-                username,
-                password,
+            const response = await axios.post('/login', formData, {
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                withCredentials: true, // ensure cookie is stored
             });
 
-            console.log('🧪 Login response:', response.data);
+            console.log('🧪 Login response:', response);
 
-            if (response.data === true) {
-                login(); // Update auth context (if you track session state)
-                navigate('/home');
-            } else {
-                setError('Invalid username or password.');
-            }
+            // login success - update auth context and navigate
+            login();
+            navigate('/home');
         } catch (err: any) {
             if (err.response?.status === 401) {
                 setError('Unauthorized. Please check your credentials.');

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import axios from '../api/axios';
 import { useParams } from 'react-router-dom';
 import EditIndividualForm from '../components/EditIndividualForm';
 import './Individual.css'; // Import the styling
