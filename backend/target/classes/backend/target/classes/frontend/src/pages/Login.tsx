@@ -15,14 +15,15 @@ export default function Login() {
         e.preventDefault();
         setError('');
 
-        const formData = new URLSearchParams();
-        formData.append('username', username);
-        formData.append('password', password);
+        const loginData = {
+            username,
+            password
+        };
 
         try {
-            const response = await axios.post('/login', formData, {
+            const response = await axios.post('/auth/login', loginData, {
                 headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
+                    'Content-Type': 'application/json',
                 },
                 withCredentials: true, // ensure cookie is stored
             });

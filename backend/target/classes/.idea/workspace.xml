@@ -4,7 +4,32 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ee961eb9-92c0-4c83-aee1-5d8e65f1066b" name="Changes" comment="had to recompile whole thing..." />
+    <list default="true" id="ee961eb9-92c0-4c83-aee1-5d8e65f1066b" name="Changes" comment="Ok, all working again with spring security. Had to ensure that axios import is always import axios from '../api/axios';">
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/tsconfig.tsbuildinfo" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/tsconfig.tsbuildinfo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/default-development/9.pack" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/default-development/index.pack" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/default-development/index.pack.old" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/default-development/index.pack.old" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/tsconfig.tsbuildinfo" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/tsconfig.tsbuildinfo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/default-development/9.pack" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/default-development/9.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/default-development/index.pack" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/default-development/index.pack.old" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/default-development/index.pack.old" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/tsconfig.tsbuildinfo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/default-development/9.pack" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/default-development/9.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/default-development/index.pack" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/default-development/index.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/default-development/index.pack.old" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/default-development/index.pack.old" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/tsconfig.tsbuildinfo" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/tsconfig.tsbuildinfo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/default-development/index.pack.old" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/default-development/index.pack.old" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/tsconfig.tsbuildinfo" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/tsconfig.tsbuildinfo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/frontend/src/pages/Login.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/frontend/node_modules/.cache/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/frontend/node_modules/.cache/.eslintcache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/frontend/node_modules/.cache/default-development/0.pack" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/frontend/node_modules/.cache/default-development/0.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/frontend/node_modules/.cache/default-development/11.pack" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/frontend/node_modules/.cache/default-development/11.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/frontend/node_modules/.cache/default-development/index.pack" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/frontend/node_modules/.cache/default-development/index.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/frontend/node_modules/.cache/default-development/index.pack.old" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/frontend/node_modules/.cache/default-development/index.pack.old" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/frontend/node_modules/.cache/tsconfig.tsbuildinfo" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/frontend/node_modules/.cache/tsconfig.tsbuildinfo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/frontend/src/pages/Login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/frontend/src/pages/Login.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Login.tsx" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -177,6 +202,8 @@
       <workItem from="1749060905212" duration="11964000" />
       <workItem from="1749301882073" duration="572000" />
       <workItem from="1749302508937" duration="4384000" />
+      <workItem from="1749651676405" duration="2550000" />
+      <workItem from="1749808778756" duration="601000" />
     </task>
     <task id="LOCAL-00001" summary="adding initial files">
       <option name="closed" value="true" />
@@ -514,7 +541,23 @@
       <option name="project" value="LOCAL" />
       <updated>1749307017687</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="Ok, all working again with spring security. Had to ensure that axios import is always import axios from '../api/axios';">
+      <option name="closed" value="true" />
+      <created>1749653008421</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1749653008421</updated>
+    </task>
+    <task id="LOCAL-00044" summary="Ok, all working again with spring security. Had to ensure that axios import is always import axios from '../api/axios';">
+      <option name="closed" value="true" />
+      <created>1749653034853</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1749653034853</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -563,6 +606,7 @@
     <MESSAGE value="Merge remote-tracking branch 'origin/main'&#10;&#10;# Conflicts:&#10;#&#9;backend/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst&#10;#&#9;backend/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" />
     <MESSAGE value="Merge remote-tracking branch 'origin/main'" />
     <MESSAGE value="had to recompile whole thing..." />
-    <option name="LAST_COMMIT_MESSAGE" value="had to recompile whole thing..." />
+    <MESSAGE value="Ok, all working again with spring security. Had to ensure that axios import is always import axios from '../api/axios';" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ok, all working again with spring security. Had to ensure that axios import is always import axios from '../api/axios';" />
   </component>
 </project>
