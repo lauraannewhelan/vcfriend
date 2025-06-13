@@ -9,6 +9,9 @@ import java.util.List;
 @Repository
 public interface IndividualRepository extends JpaRepository<Individual, Long> {
 
-    // ✅ This is the key method you're missing
+    // 🔍 Find all individuals by pedigree ID (nested lookup into Pedigree entity)
     List<Individual> findByPedigree_PedigreeId(String pedigreeId);
+
+    // ✅ Optional: Check if an individual exists by ID
+    boolean existsById(Long id);
 }
