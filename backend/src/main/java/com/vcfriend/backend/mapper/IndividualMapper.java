@@ -8,6 +8,7 @@ import com.vcfriend.backend.model.Individual;
 import com.vcfriend.backend.model.Pedigree;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDate;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -26,8 +27,23 @@ public class IndividualMapper {
         dto.setClinicalDiagnosis(individual.getClinicalDiagnosis());
         dto.setDateOfBirth(individual.getDateOfBirth() != null ? individual.getDateOfBirth().toString() : "");
         dto.setProband(individual.getProband());
-
+        dto.setSexLabel(individual.getSexLabel());  // Added sexLabel mapping
         return dto;
+    }
+
+    public Individual fromDTO(IndividualDTO dto) {
+        if (dto == null) return null;
+
+        Individual individual = new Individual();
+        individual.setId(dto.getId());
+        individual.setName(dto.getName());
+        individual.setClinicalDiagnosis(dto.getClinicalDiagnosis());
+        if (dto.getDateOfBirth() != null && !dto.getDateOfBirth().isEmpty()) {
+            individual.setDateOfBirth(LocalDate.parse(dto.getDateOfBirth()));
+        }
+        individual.setProband(dto.getProband());
+        individual.setSexLabel(dto.getSexLabel());  // Added sexLabel mapping
+        return individual;
     }
 
     public List<IndividualDTO> toDTOList(List<Individual> individuals) {

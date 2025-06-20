@@ -14,15 +14,17 @@ public class Individual {
     private String name;
     private String clinicalDiagnosis;
     private LocalDate dateOfBirth;
+    private Boolean proband;
 
-    private Boolean proband;  // ✅ Add this field
+    @Column(name = "sex_label")
+    private String sexLabel;
 
     @ManyToOne
     @JoinColumn(name = "pedigree_id")
     @JsonBackReference
     private Pedigree pedigree;
 
-    // ✅ Getters
+    // Getters
     public Long getId() {
         return id;
     }
@@ -43,11 +45,15 @@ public class Individual {
         return proband;
     }
 
+    public String getSexLabel() {
+        return sexLabel;
+    }
+
     public Pedigree getPedigree() {
         return pedigree;
     }
 
-    // ✅ Setters
+    // Setters
     public void setId(Long id) {
         this.id = id;
     }
@@ -66,6 +72,10 @@ public class Individual {
 
     public void setProband(Boolean proband) {
         this.proband = proband;
+    }
+
+    public void setSexLabel(String sexLabel) {
+        this.sexLabel = sexLabel;
     }
 
     public void setPedigree(Pedigree pedigree) {

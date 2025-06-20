@@ -7,6 +7,7 @@ interface Pedigree {
     pedigreeId: string;
     disease: string;
     numSubjects: number;
+    genetic_diagnosis: string;
 }
 
 const Home = () => {
@@ -55,6 +56,7 @@ const Home = () => {
                         clinicalDiagnosis: ind.clinicalDiagnosis,
                         dateOfBirth: ind.dateOfBirth,
                         proband: ind.proband,
+                        sexLabel: ind.sexLabel,  // Added sexLabel mapping
                     }));
 
                     console.log('✅ Normalized individuals:', normalized);
@@ -70,9 +72,8 @@ const Home = () => {
 
     return (
         <div className="home-container">
-        <h1 className="main-title">Welcome to VCFriend</h1>
-        <p className="centered-text">Your secure and user-friendly web application for genomic data analysis.</p>
-
+            <h1 className="main-title">Welcome to VCFriend</h1>
+            <p className="centered-text">Your secure and user-friendly web application for genomic data analysis.</p>
 
             <div className="search-family mt-4 mb-4">
                 <input
@@ -91,9 +92,8 @@ const Home = () => {
             {results.length > 0 && (
                 <>
                     <h3>Pedigree Results</h3>
-                    <p>
-                        <strong>{results[0].pedigreeId}</strong>: {results[0].disease} ({results[0].numSubjects} subjects)
-                    </p>
+                    <p>Clinical Diagnosis: {results[0].disease}</p>
+                    <p>Genetic Diagnosis: {results[0].genetic_diagnosis}</p>
 
                     <h3 className="mt-6">Members</h3>
 
@@ -109,8 +109,9 @@ const Home = () => {
                                         className="p-4 border rounded shadow hover:bg-gray-100 cursor-pointer"
                                         onClick={() => navigate(`/individuals/${ind.id}`)}
                                     >
-                                        <h4 className="text-lg font-semibold">{ind.name}</h4>
-                                        <p>{ind.clinicalDiagnosis}</p>
+                                        <h4 className="text-lg font-semibold">Participant ID: {ind.id}</h4>
+                                        <p>Sex: {ind.sexLabel}</p>
+                                        <p>Clinical Diagnosis: {ind.clinicalDiagnosis}</p>
                                         <p className="text-sm text-gray-500">{ind.dateOfBirth}</p>
                                         <p className="text-sm">{ind.proband ? 'Proband' : 'Not proband'}</p>
                                     </div>

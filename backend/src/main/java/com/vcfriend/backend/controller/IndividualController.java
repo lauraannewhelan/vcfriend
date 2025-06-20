@@ -3,6 +3,7 @@ package com.vcfriend.backend.controller;
 import com.vcfriend.backend.dto.IndividualDTO;
 import com.vcfriend.backend.model.Individual;
 import com.vcfriend.backend.service.IndividualService;
+import com.vcfriend.backend.mapper.IndividualMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -21,6 +22,9 @@ public class IndividualController {
     @Autowired
     private IndividualService individualService;
 
+    @Autowired
+    private IndividualMapper individualMapper;
+
     @GetMapping("/pedigrees/{pedigreeId}")
     public List<IndividualDTO> getIndividualsByPedigree(@PathVariable String pedigreeId) {
         return individualService.getByPedigreeId(pedigreeId);
@@ -29,13 +33,7 @@ public class IndividualController {
     @GetMapping("/{id}")
     public IndividualDTO getIndividualById(@PathVariable Long id) {
         Individual ind = individualService.getById(id);
-        IndividualDTO dto = new IndividualDTO();
-        dto.setId(ind.getId());
-        dto.setName(ind.getName());
-        dto.setClinicalDiagnosis(ind.getClinicalDiagnosis());
-        dto.setDateOfBirth(ind.getDateOfBirth().toString());
-        dto.setProband(ind.getProband());
-        return dto;
+        return individualMapper.toDTO(ind);  // Use mapper instead of manual mapping
     }
 
     @PutMapping("/{id}")
@@ -46,6 +44,7 @@ public class IndividualController {
             individual.setClinicalDiagnosis(updated.getClinicalDiagnosis());
             individual.setDateOfBirth(LocalDate.parse(updated.getDateOfBirth()));
             individual.setProband(updated.getProband());
+            individual.setSexLabel(updated.getSexLabel());
             individualService.save(individual);
         }
     }
@@ -90,5 +89,4 @@ public class IndividualController {
             return ResponseEntity.status(500).body("Error reading VCF file: " + e.getMessage());
         }
     }
-
 }

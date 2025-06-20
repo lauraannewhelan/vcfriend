@@ -6,6 +6,7 @@ public class IndividualDTO {
     private String clinicalDiagnosis;
     private String dateOfBirth;
     private Boolean proband;
+    private String sexLabel;
 
     public Long getId() {
         return id;
@@ -45,5 +46,13 @@ public class IndividualDTO {
 
     public void setProband(Boolean proband) {
         this.proband = proband;
+    }
+
+    public String getSexLabel() {
+        return sexLabel;
+    }
+
+    public void setSexLabel(String sexLabel) {
+        this.sexLabel = sexLabel;
     }
 }
