@@ -1,6 +1,7 @@
 /Users/laurawhelan/IdeaProjects/vcfriend/backend/src/main/java/com/vcfriend/backend/repository/UserRepository.java
 /Users/laurawhelan/IdeaProjects/vcfriend/backend/src/main/java/com/vcfriend/backend/model/Dataset.java
 /Users/laurawhelan/IdeaProjects/vcfriend/backend/src/main/java/com/vcfriend/backend/model/Exposure.java
+/Users/laurawhelan/IdeaProjects/vcfriend/backend/src/main/java/com/vcfriend/backend/service/VcfParserService.java
 /Users/laurawhelan/IdeaProjects/vcfriend/backend/src/main/java/com/vcfriend/backend/dto/PhenotypicFeatureDTO.java
 /Users/laurawhelan/IdeaProjects/vcfriend/backend/src/main/java/com/vcfriend/backend/repository/BiosampleRepository.java
 /Users/laurawhelan/IdeaProjects/vcfriend/backend/src/main/java/com/vcfriend/backend/controller/UserController.java

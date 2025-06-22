@@ -19,6 +19,9 @@ public class Individual {
     @Column(name = "sex_label")
     private String sexLabel;
 
+    @Column(name = "study_id", unique = true)
+    private String studyId;
+
     @ManyToOne
     @JoinColumn(name = "pedigree_id")
     @JsonBackReference

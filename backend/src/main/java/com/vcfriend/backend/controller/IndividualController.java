@@ -1,9 +1,11 @@
 package com.vcfriend.backend.controller;
 
 import com.vcfriend.backend.dto.IndividualDTO;
-import com.vcfriend.backend.model.Individual;
-import com.vcfriend.backend.service.IndividualService;
 import com.vcfriend.backend.mapper.IndividualMapper;
+import com.vcfriend.backend.model.GenomicVariant;
+import com.vcfriend.backend.model.Individual;
+import com.vcfriend.backend.service.GenomicVariantService;
+import com.vcfriend.backend.service.IndividualService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -25,6 +27,9 @@ public class IndividualController {
     @Autowired
     private IndividualMapper individualMapper;
 
+    @Autowired
+    private GenomicVariantService genomicVariantService;
+
     @GetMapping("/pedigrees/{pedigreeId}")
     public List<IndividualDTO> getIndividualsByPedigree(@PathVariable String pedigreeId) {
         return individualService.getByPedigreeId(pedigreeId);
@@ -33,7 +38,7 @@ public class IndividualController {
     @GetMapping("/{id}")
     public IndividualDTO getIndividualById(@PathVariable Long id) {
         Individual ind = individualService.getById(id);
-        return individualMapper.toDTO(ind);  // Use mapper instead of manual mapping
+        return individualMapper.toDTO(ind);
     }
 
     @PutMapping("/{id}")
@@ -78,15 +83,14 @@ public class IndividualController {
         return individualService.testRepoFindByPedigree(pedigreeId);
     }
 
-    @GetMapping("/{id}/vcf-variants")
-    public ResponseEntity<?> getIndividualVCFVariants(@PathVariable Long id) {
-        System.out.println("📥 Received request for VCF variants for ID: " + id);
-        try {
-            List<String> variants = individualService.getVariantsFromVCF(id);
-            return ResponseEntity.ok(variants);
-        } catch (Exception e) {
-            System.out.println("❌ Error while processing VCF: " + e.getMessage());
-            return ResponseEntity.status(500).body("Error reading VCF file: " + e.getMessage());
-        }
+
+    @GetMapping("/{id}/variants")
+    public ResponseEntity<List<GenomicVariant>> getVariantsFromDatabase(@PathVariable Long id) {
+        System.out.println("🧬 Fetching variants for individual ID: " + id);
+        List<GenomicVariant> variants = genomicVariantService.getVariantsByIndividualId(id);
+
+        System.out.println("🔎 Found " + variants.size() + " variants");
+        return ResponseEntity.ok(variants);
     }
+
 }

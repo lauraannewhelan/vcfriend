@@ -34,14 +34,14 @@ public class StartupConfig {
                 System.out.println("ℹ️ Test user already exists.");
             }
 
-            // ✅ Parse all VCF files in the directory
-            try (DirectoryStream<Path> stream = Files.newDirectoryStream(Paths.get(VCF_DIRECTORY), "*.vcf")) {
-                for (Path vcfPath : stream) {
-                    System.out.println("🔍 Parsing VCF file: " + vcfPath);
-                    vcfParserService.parseAndStoreVcf(vcfPath.toString());
+            // ✅ Parse all annotated CSV files in the directory
+            try (DirectoryStream<Path> stream = Files.newDirectoryStream(Paths.get(VCF_DIRECTORY), "*.csv")) {
+                for (Path csvPath : stream) {
+                    System.out.println("🔍 Parsing annotated VCF CSV file: " + csvPath);
+                    vcfParserService.parseAndStoreCsv(csvPath.toString());
                 }
             } catch (IOException e) {
-                System.err.println("❌ Failed to read VCF directory: " + VCF_DIRECTORY);
+                System.err.println("❌ Failed to read CSV directory: " + VCF_DIRECTORY);
                 e.printStackTrace();
             }
         };
