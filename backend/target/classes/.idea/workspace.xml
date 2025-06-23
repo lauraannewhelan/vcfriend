@@ -4,51 +4,125 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ee961eb9-92c0-4c83-aee1-5d8e65f1066b" name="Changes" comment="looking very coooool now, annotated files working!">
-      <change afterPath="$PROJECT_DIR$/frontend/public/hgrg-banner.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/pages/UploadData.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/pages/UploadData.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/vcfriend/backend/controller/IndividualController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/vcfriend/backend/controller/IndividualController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/vcfriend/backend/controller/PedigreeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/vcfriend/backend/controller/PedigreeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/vcfriend/backend/dto/IndividualDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/vcfriend/backend/dto/IndividualDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/vcfriend/backend/model/Individual.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/vcfriend/backend/model/Individual.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/vcfriend/backend/service/IndividualService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/vcfriend/backend/service/IndividualService.java" afterDir="false" />
+    <list default="true" id="ee961eb9-92c0-4c83-aee1-5d8e65f1066b" name="Changes" comment="Can upload people and pedigrees now">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/vcfriend/backend/controller/GenomicVariantController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/vcfriend/backend/controller/GenomicVariantController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/vcfriend/backend/model/GenomicVariant.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/vcfriend/backend/model/GenomicVariant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/vcfriend/backend/service/GenomicVariantService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/vcfriend/backend/service/GenomicVariantService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/vcfriend/backend/service/VcfParserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/vcfriend/backend/service/VcfParserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/vcfriend/backend/watcher/CsvFolderWatcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/vcfriend/backend/watcher/CsvFolderWatcher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/application.properties" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/default-development/10.pack" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/default-development/9.pack" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/default-development/index.pack" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/default-development/index.pack.old" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/default-development/index.pack" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/default-development/index.pack.old" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/tsconfig.tsbuildinfo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/default-development/index.pack" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/default-development/index.pack.old" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/tsconfig.tsbuildinfo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/default-development/10.pack" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/default-development/7.pack" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/default-development/9.pack" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/default-development/index.pack" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/default-development/index.pack.old" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/tsconfig.tsbuildinfo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/frontend/src/api/getVariants.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/babel-loader/1ee14c072bf1b00df18e3bfe59205a6cc4b12c2ec6301b1f1181963944dc143e.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/default-development/10.pack" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/default-development/2.pack" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/default-development/7.pack" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/default-development/index.pack.old" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/tsconfig.tsbuildinfo" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/default-development/0.pack" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/default-development/0.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/default-development/11.pack" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/default-development/11.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/default-development/12.pack" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/default-development/12.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/default-development/2.pack" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/default-development/2.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/default-development/7.pack" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/default-development/7.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/frontend/src/pages/Individual.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/frontend/src/pages/Individual.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/vcfriend/backend/controller/IndividualController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/frontend/src/api/axios.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/frontend/src/api/getVariants.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/frontend/src/pages/Login.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/babel-loader/1ee14c072bf1b00df18e3bfe59205a6cc4b12c2ec6301b1f1181963944dc143e.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/babel-loader/39f1eb85a2b726ff8cafc26c53e99879b6c8ebab6260d0fd3c97954154a84a42.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/babel-loader/c518b7adfd31278f3aa741c97e619ed0138c22258fabdc172bfc2c866d169cf1.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/default-development/10.pack" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/default-development/9.pack" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/frontend/src/api/axios.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/frontend/src/api/getVariants.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/frontend/src/pages/Login.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/babel-loader/1ee14c072bf1b00df18e3bfe59205a6cc4b12c2ec6301b1f1181963944dc143e.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/babel-loader/39f1eb85a2b726ff8cafc26c53e99879b6c8ebab6260d0fd3c97954154a84a42.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/babel-loader/c518b7adfd31278f3aa741c97e619ed0138c22258fabdc172bfc2c866d169cf1.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/default-development/0.pack" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/default-development/10.pack" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/default-development/11.pack" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/default-development/12.pack" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/default-development/14.pack" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/default-development/15.pack" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/default-development/2.pack" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/default-development/7.pack" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/default-development/9.pack" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/frontend/src/api/axios.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/frontend/src/api/getVariants.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/frontend/src/pages/Individual.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/frontend/src/pages/Login.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/babel-loader/1ee14c072bf1b00df18e3bfe59205a6cc4b12c2ec6301b1f1181963944dc143e.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/babel-loader/39f1eb85a2b726ff8cafc26c53e99879b6c8ebab6260d0fd3c97954154a84a42.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/babel-loader/c518b7adfd31278f3aa741c97e619ed0138c22258fabdc172bfc2c866d169cf1.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/default-development/0.pack" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/default-development/11.pack" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/default-development/12.pack" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/default-development/14.pack" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/default-development/15.pack" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/default-development/7.pack" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/frontend/src/api/axios.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/frontend/src/api/getVariants.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/classes/frontend/src/pages/Individual.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/backend/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/babel-loader/1585385219f0af399948d641ff56c9398c71e41a0a5b2d369eae5209d2d0e1d3.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/babel-loader/1ee14c072bf1b00df18e3bfe59205a6cc4b12c2ec6301b1f1181963944dc143e.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/babel-loader/39f1eb85a2b726ff8cafc26c53e99879b6c8ebab6260d0fd3c97954154a84a42.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/babel-loader/c518b7adfd31278f3aa741c97e619ed0138c22258fabdc172bfc2c866d169cf1.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/default-development/0.pack" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/default-development/10.pack" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/default-development/12.pack" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/default-development/15.pack" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/default-development/7.pack" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/default-development/9.pack" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/frontend/src/api/axios.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/frontend/src/api/getVariants.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/frontend/src/pages/Individual.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/classes/frontend/src/pages/Login.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/backend/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/backend/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/backend/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/vcfriend/backend/config/SecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/vcfriend/backend/config/SecurityConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/vcfriend/backend/config/StartupConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/vcfriend/backend/config/StartupConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/vcfriend/backend/controller/GenomicVariantController.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/vcfriend/backend/controller/GenomicVariantController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/target/classes/com/vcfriend/backend/controller/PedigreeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/vcfriend/backend/controller/PedigreeController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/vcfriend/backend/dto/IndividualDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/vcfriend/backend/dto/IndividualDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/vcfriend/backend/service/IndividualService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/vcfriend/backend/model/GenomicVariant.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/vcfriend/backend/model/GenomicVariant.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/vcfriend/backend/service/GenomicVariantService.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/vcfriend/backend/service/GenomicVariantService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/vcfriend/backend/service/IndividualService.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/vcfriend/backend/service/IndividualService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/database/.idea/dataSources/33ee9490-cf41-4160-ad25-b1e5099f70aa/storage_v2/_src_/database/vcfriend_db.sh1g1A/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/database/.idea/dataSources/33ee9490-cf41-4160-ad25-b1e5099f70aa/storage_v2/_src_/database/vcfriend_db.sh1g1A/schema/public.abK9xQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/database/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/database/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/target/classes/frontend/node_modules/.cache/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/frontend/node_modules/.cache/.eslintcache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/frontend/node_modules/.cache/default-development/0.pack" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/frontend/node_modules/.cache/default-development/0.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/frontend/node_modules/.cache/default-development/1.pack" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/frontend/node_modules/.cache/default-development/1.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/frontend/node_modules/.cache/default-development/10.pack" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/frontend/node_modules/.cache/default-development/10.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/frontend/node_modules/.cache/default-development/11.pack" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/frontend/node_modules/.cache/default-development/11.pack" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/target/classes/frontend/node_modules/.cache/default-development/12.pack" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/frontend/node_modules/.cache/default-development/12.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/frontend/node_modules/.cache/default-development/14.pack" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/frontend/node_modules/.cache/default-development/14.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/frontend/node_modules/.cache/default-development/15.pack" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/frontend/node_modules/.cache/default-development/15.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/frontend/node_modules/.cache/default-development/2.pack" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/frontend/node_modules/.cache/default-development/2.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/frontend/node_modules/.cache/default-development/9.pack" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/frontend/node_modules/.cache/default-development/9.pack" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/target/classes/frontend/node_modules/.cache/default-development/index.pack" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/frontend/node_modules/.cache/default-development/index.pack" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/target/classes/frontend/node_modules/.cache/default-development/index.pack.old" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/frontend/node_modules/.cache/default-development/index.pack.old" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/target/classes/frontend/node_modules/.cache/tsconfig.tsbuildinfo" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/frontend/node_modules/.cache/tsconfig.tsbuildinfo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/frontend/src/pages/Individual.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/frontend/src/pages/Individual.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Home.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Home.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/pages/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Home.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Individual.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Individual.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/UploadVCF.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/VariantBrowser.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/VariantBrowser.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/VariantBrowser.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/VariantBrowser.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vcf_storage/frontend/src/pages/UploadVCF.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/vcf_storage/frontend/src/pages/UploadVCF.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,10 +153,31 @@
     &quot;assignee&quot;: &quot;lauraannewhelan&quot;
   }
 }</component>
+  <component name="GitHubPullRequestState">{
+  &quot;prStates&quot;: [
+    {
+      &quot;id&quot;: {
+        &quot;id&quot;: &quot;PR_kwDOObJsm86brVdr&quot;,
+        &quot;number&quot;: 3
+      },
+      &quot;lastSeen&quot;: 1750688116101
+    }
+  ]
+}</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/lauraannewhelan/vcfriend.git&quot;,
     &quot;accountId&quot;: &quot;f8697f3d-a8d4-480f-8a6e-6b5766c2daae&quot;
+  },
+  &quot;recentNewPullRequestHead&quot;: {
+    &quot;server&quot;: {
+      &quot;useHttp&quot;: false,
+      &quot;host&quot;: &quot;github.com&quot;,
+      &quot;port&quot;: null,
+      &quot;suffix&quot;: null
+    },
+    &quot;owner&quot;: &quot;lauraannewhelan&quot;,
+    &quot;repository&quot;: &quot;vcfriend&quot;
   }
 }</component>
   <component name="KubernetesApiPersistence">{}</component>
@@ -103,52 +198,52 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Application.VcfriendApplication.executor": "Run",
-    "HTTP Request.family-api | Add inividual.executor": "Run",
-    "HTTP Request.family-api | Create Another Individual in Family ID 1.executor": "Run",
-    "HTTP Request.family-api | Create Individual 1.executor": "Run",
-    "HTTP Request.family-api | Create Individual 2.executor": "Run",
-    "HTTP Request.family-api | Create Individual 3.executor": "Run",
-    "HTTP Request.family-api | Create Individual 4.executor": "Run",
-    "HTTP Request.family-api | Create Individual 5.executor": "Run",
-    "HTTP Request.family-api | Create Individual in Family ID 1.executor": "Run",
-    "HTTP Request.family-api | Create a new family.executor": "Run",
-    "HTTP Request.family-api | Create an individual (linked to family ID 1).executor": "Run",
-    "HTTP Request.family-api | Create another individual.executor": "Run",
-    "HTTP Request.family-api | Get All Individuals.executor": "Run",
-    "HTTP Request.family-api | Get all families.executor": "Run",
-    "HTTP Request.family-api | Get all individuals#1.executor": "Run",
-    "HTTP Request.family-api | Get all individuals#2.executor": "Run",
-    "HTTP Request.family-api | Get all individuals.executor": "Run",
-    "HTTP Request.family-api | Retrieve All Individuals by family.executor": "Run",
-    "HTTP Request.family-api | Retrieve All Individuals.executor": "Run",
-    "HTTP Request.family-api | updating.executor": "Run",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Spring Boot.VcfriendApplication.executor": "Run",
-    "git-widget-placeholder": "epilepsy__version",
-    "last_opened_file_path": "/Users/laurawhelan/IdeaProjects/vcfriend/frontend/public",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
-    "ts.external.directory.path": "/Users/laurawhelan/IdeaProjects/vcfriend/frontend/node_modules/typescript/lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Application.VcfriendApplication.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.family-api | Add inividual.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.family-api | Create Another Individual in Family ID 1.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.family-api | Create Individual 1.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.family-api | Create Individual 2.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.family-api | Create Individual 3.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.family-api | Create Individual 4.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.family-api | Create Individual 5.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.family-api | Create Individual in Family ID 1.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.family-api | Create a new family.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.family-api | Create an individual (linked to family ID 1).executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.family-api | Create another individual.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.family-api | Get All Individuals.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.family-api | Get all families.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.family-api | Get all individuals#1.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.family-api | Get all individuals#2.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.family-api | Get all individuals.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.family-api | Retrieve All Individuals by family.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.family-api | Retrieve All Individuals.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.family-api | updating.executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Spring Boot.VcfriendApplication.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;epilepsy__version&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/laurawhelan/IdeaProjects/vcfriend/frontend/public&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.projectsettings.compiler.annotationProcessors&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/laurawhelan/IdeaProjects/vcfriend/frontend/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="HttpStatus" />
@@ -233,79 +328,10 @@
       <workItem from="1749651676405" duration="2550000" />
       <workItem from="1749808778756" duration="2150000" />
       <workItem from="1749826246530" duration="9689000" />
-      <workItem from="1750348460717" duration="37679000" />
-    </task>
-    <task id="LOCAL-00003" summary="getting up and running - connection between springboot and postgreSQL database">
-      <option name="closed" value="true" />
-      <created>1744895772606</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1744895772606</updated>
-    </task>
-    <task id="LOCAL-00004" summary="family API">
-      <option name="closed" value="true" />
-      <created>1744895974001</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1744895974001</updated>
-    </task>
-    <task id="LOCAL-00005" summary="trying to add individuals">
-      <option name="closed" value="true" />
-      <created>1744898617450</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1744898617450</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Adding and viewing families and individuals is working">
-      <option name="closed" value="true" />
-      <created>1744899470801</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1744899470801</updated>
-    </task>
-    <task id="LOCAL-00007" summary="starting to work with front end">
-      <option name="closed" value="true" />
-      <created>1744905427158</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1744905427158</updated>
-    </task>
-    <task id="LOCAL-00008" summary="starting to work with front end">
-      <option name="closed" value="true" />
-      <created>1744905488181</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1744905488181</updated>
-    </task>
-    <task id="LOCAL-00009" summary="Adding and viewing families and individuals is working">
-      <option name="closed" value="true" />
-      <created>1744926200925</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1744926200926</updated>
-    </task>
-    <task id="LOCAL-00010" summary="Adding and viewing families and individuals is working">
-      <option name="closed" value="true" />
-      <created>1744926302039</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1744926302039</updated>
-    </task>
-    <task id="LOCAL-00011" summary="Adding and viewing families and individuals is working">
-      <option name="closed" value="true" />
-      <created>1744926314748</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1744926314748</updated>
+      <workItem from="1750348460717" duration="50490000" />
+      <workItem from="1750693241511" duration="1812000" />
+      <workItem from="1750695091709" duration="93000" />
+      <workItem from="1750695195772" duration="1134000" />
     </task>
     <task id="LOCAL-00012" summary="Adding and viewing families and individuals is working">
       <option name="closed" value="true" />
@@ -627,7 +653,79 @@
       <option name="project" value="LOCAL" />
       <updated>1750620186509</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="Can upload people and pedigrees now">
+      <option name="closed" value="true" />
+      <created>1750687945228</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1750687945228</updated>
+    </task>
+    <task id="LOCAL-00053" summary="Can upload people and pedigrees now">
+      <option name="closed" value="true" />
+      <created>1750687969405</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1750687969405</updated>
+    </task>
+    <task id="LOCAL-00054" summary="Can upload people and pedigrees now">
+      <option name="closed" value="true" />
+      <created>1750687988100</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1750687988100</updated>
+    </task>
+    <task id="LOCAL-00055" summary="Can upload people and pedigrees now">
+      <option name="closed" value="true" />
+      <created>1750688000276</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1750688000276</updated>
+    </task>
+    <task id="LOCAL-00056" summary="Can upload people and pedigrees now">
+      <option name="closed" value="true" />
+      <created>1750688034094</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1750688034094</updated>
+    </task>
+    <task id="LOCAL-00057" summary="Can upload people and pedigrees now">
+      <option name="closed" value="true" />
+      <created>1750688077915</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1750688077915</updated>
+    </task>
+    <task id="LOCAL-00058" summary="Can upload people and pedigrees now">
+      <option name="closed" value="true" />
+      <created>1750688130590</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1750688130590</updated>
+    </task>
+    <task id="LOCAL-00059" summary="Can upload people and pedigrees now">
+      <option name="closed" value="true" />
+      <created>1750688138343</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1750688138343</updated>
+    </task>
+    <task id="LOCAL-00060" summary="Can upload people and pedigrees now">
+      <option name="closed" value="true" />
+      <created>1750688151161</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1750688151162</updated>
+    </task>
+    <option name="localTasksCounter" value="61" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -662,7 +760,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="getting up and running - connection between springboot and postgreSQL database" />
     <MESSAGE value="family API" />
     <MESSAGE value="trying to add individuals" />
     <MESSAGE value="starting to work with front end" />
@@ -687,7 +784,8 @@
     <MESSAGE value="search variant feture working" />
     <MESSAGE value="epilepsy demo" />
     <MESSAGE value="looking very coooool now, annotated files working!" />
-    <option name="LAST_COMMIT_MESSAGE" value="looking very coooool now, annotated files working!" />
+    <MESSAGE value="Can upload people and pedigrees now" />
+    <option name="LAST_COMMIT_MESSAGE" value="Can upload people and pedigrees now" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

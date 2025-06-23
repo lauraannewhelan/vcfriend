@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import java.io.File;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -36,9 +37,12 @@ public class IndividualService {
         return individualMapper.toDTOList(individuals);
     }
 
-
     public Individual getById(Long id) {
         return individualRepository.findById(id).orElse(null);
+    }
+
+    public Individual getByStudyId(String studyId) {
+        return individualRepository.findByStudyId(studyId).orElse(null);
     }
 
     public void relinkIndividual(Long individualId, String pedigreeId) {

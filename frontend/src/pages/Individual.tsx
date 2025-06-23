@@ -24,6 +24,7 @@ const IndividualPage = () => {
         const fetchDbVariants = async () => {
             try {
                 const res = await axios.get(`/api/individuals/${id}/variants`);
+                console.log("📦 Variants fetched:", res.data);  // <--- ADD THIS
                 setDbVariants(res.data);
             } catch (error) {
                 console.error("❌ Failed to fetch DB variants", error);
@@ -31,6 +32,7 @@ const IndividualPage = () => {
         };
         if (id) fetchDbVariants();
     }, [id]);
+
 
     const handleSave = async () => {
         const res = await axios.get(`/api/individuals/${id}`);

@@ -2,7 +2,6 @@ package com.vcfriend.backend.service;
 
 import com.vcfriend.backend.model.GenomicVariant;
 import com.vcfriend.backend.repository.GenomicVariantRepository;
-import lombok.RequiredArgsConstructor;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
@@ -14,14 +13,18 @@ import java.nio.file.Paths;
 import java.util.*;
 
 @Service
-@RequiredArgsConstructor
 public class VcfParserService {
 
     private final GenomicVariantRepository repository;
 
+    // ✅ Manual constructor (since Lombok is not working)
+    public VcfParserService(GenomicVariantRepository repository) {
+        this.repository = repository;
+    }
+
     public void parseAndStoreCsv(String filePath) {
         List<GenomicVariant> variants = new ArrayList<>();
-        Set<String> seen = new HashSet<>(); // ✅ Tracks duplicates
+        Set<String> seen = new HashSet<>();
 
         String fileName = Paths.get(filePath).getFileName().toString();
         int individualId = Integer.parseInt(fileName.replace(".csv", ""));
@@ -37,10 +40,8 @@ public class VcfParserService {
                 String alt = safeGet(record, "Alt");
                 String variantString = safeGet(record, "variant");
 
-                // ✅ Create a unique key
                 String key = individualId + "|" + chr + "|" + start + "|" + end + "|" + ref + "|" + alt + "|" + variantString;
-
-                if (seen.contains(key)) continue; // ✅ Skip duplicates
+                if (seen.contains(key)) continue;
                 seen.add(key);
 
                 GenomicVariant variant = new GenomicVariant();

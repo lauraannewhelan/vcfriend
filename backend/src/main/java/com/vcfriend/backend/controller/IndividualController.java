@@ -106,7 +106,22 @@ public class IndividualController {
     // Get variants for an individual
     @GetMapping("/{id}/variants")
     public ResponseEntity<List<GenomicVariant>> getVariantsFromDatabase(@PathVariable Long id) {
+        System.out.println("📥 API hit: /variants for individual ID " + id);
         List<GenomicVariant> variants = genomicVariantService.getVariantsByIndividualId(id);
+        System.out.println("📤 Returning " + variants.size() + " variants");
         return ResponseEntity.ok(variants);
     }
+
+
+    // Get individual by study ID
+    @GetMapping("/study-id/{studyId}")
+    public ResponseEntity<IndividualDTO> getByStudyId(@PathVariable String studyId) {
+        Individual individual = individualService.getByStudyId(studyId);
+        if (individual != null) {
+            return ResponseEntity.ok(individualMapper.toDTO(individual));
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
 }

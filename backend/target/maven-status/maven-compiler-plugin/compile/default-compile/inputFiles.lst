@@ -3,6 +3,7 @@
 /Users/laurawhelan/IdeaProjects/vcfriend/backend/src/main/java/com/vcfriend/backend/model/Exposure.java
 /Users/laurawhelan/IdeaProjects/vcfriend/backend/src/main/java/com/vcfriend/backend/service/VcfParserService.java
 /Users/laurawhelan/IdeaProjects/vcfriend/backend/src/main/java/com/vcfriend/backend/dto/PhenotypicFeatureDTO.java
+/Users/laurawhelan/IdeaProjects/vcfriend/backend/src/main/java/com/vcfriend/backend/watcher/CsvFolderWatcher.java
 /Users/laurawhelan/IdeaProjects/vcfriend/backend/src/main/java/com/vcfriend/backend/repository/BiosampleRepository.java
 /Users/laurawhelan/IdeaProjects/vcfriend/backend/src/main/java/com/vcfriend/backend/controller/UserController.java
 /Users/laurawhelan/IdeaProjects/vcfriend/backend/src/main/java/com/vcfriend/backend/dto/TreatmentDTO.java
@@ -23,6 +24,7 @@
 /Users/laurawhelan/IdeaProjects/vcfriend/backend/src/main/java/com/vcfriend/backend/dto/FamilyDTO.java
 /Users/laurawhelan/IdeaProjects/vcfriend/backend/src/main/java/com/vcfriend/backend/dto/IndividualDTO.java
 /Users/laurawhelan/IdeaProjects/vcfriend/backend/src/main/java/com/vcfriend/backend/config/StartupConfig.java
+/Users/laurawhelan/IdeaProjects/vcfriend/backend/src/main/java/HttpStatus/NOT_FOUND.java
 /Users/laurawhelan/IdeaProjects/vcfriend/backend/src/main/java/com/vcfriend/backend/model/User.java
 /Users/laurawhelan/IdeaProjects/vcfriend/backend/src/main/java/com/vcfriend/backend/controller/GenomicVariantController.java
 /Users/laurawhelan/IdeaProjects/vcfriend/backend/src/main/java/com/vcfriend/backend/model/Pedigree.java

@@ -2,7 +2,6 @@ package com.vcfriend.backend.controller;
 
 import com.vcfriend.backend.model.GenomicVariant;
 import com.vcfriend.backend.service.GenomicVariantService;
-import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,10 +12,14 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/variants")
-@RequiredArgsConstructor
 public class GenomicVariantController {
 
     private final GenomicVariantService variantService;
+
+    // ✅ Manual constructor since Lombok is not working
+    public GenomicVariantController(GenomicVariantService variantService) {
+        this.variantService = variantService;
+    }
 
     @GetMapping
     public ResponseEntity<List<GenomicVariant>> getAllVariants() {

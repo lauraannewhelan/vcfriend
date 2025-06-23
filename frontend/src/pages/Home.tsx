@@ -12,17 +12,8 @@ interface Individual {
     sexLabel: string;
 }
 
-interface Pedigree {
-    pedigree_id: string;
-    disease: string;
-    num_subjects: number;
-    genetic_diagnosis: string;
-    individuals: Individual[];
-}
-
 const Home = () => {
     const [searchQuery, setSearchQuery] = useState('');
-    const [results, setResults] = useState<Pedigree | null>(null);
     const [individuals, setIndividuals] = useState<Individual[]>([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
@@ -31,27 +22,21 @@ const Home = () => {
     const handleSearch = async () => {
         if (!searchQuery) return;
         setLoading(true);
+        setError(null);
+        setIndividuals([]);
 
         try {
-            const response = await axios.get('/api/pedigrees/search', {
-                params: { query: searchQuery },
-            });
+            const response = await axios.get(`/api/individuals/pedigrees/${searchQuery}`);
+            console.log('📦 Individuals for pedigree:', response.data);
 
-            if (response.data) {
-                console.log('📦 Full pedigree response:', response.data);
-                setResults(response.data);
-                setIndividuals(response.data.individuals || []);
-                setError(null);
+            if (response.data.length > 0) {
+                setIndividuals(response.data);
             } else {
-                setError('No families found for this search.');
-                setResults(null);
-                setIndividuals([]);
+                setError('No individuals found for this pedigree.');
             }
         } catch (err) {
-            console.error('❌ Failed to fetch pedigrees:', err);
-            setError('Failed to fetch pedigrees.');
-            setResults(null);
-            setIndividuals([]);
+            console.error('❌ Failed to fetch individuals:', err);
+            setError('Error fetching individuals for pedigree.');
         }
 
         setLoading(false);
@@ -76,35 +61,24 @@ const Home = () => {
 
             {error && <p className="text-red-600">{error}</p>}
 
-            {results && (
+            {individuals.length > 0 && (
                 <>
-                    <h3>Pedigree Results</h3>
-                    <p>Clinical Diagnosis: {results.disease}</p>
-                    <p>Genetic Diagnosis: {results.genetic_diagnosis}</p>
-
-                    <h3 className="mt-6">Members</h3>
-
-                    {individuals.length === 0 ? (
-                        <p className="text-gray-600">No individuals found for this pedigree.</p>
-                    ) : (
-                        <div className="grid grid-cols-3 gap-4 mt-4">
-                            {individuals
-                                .filter(ind => ind.studyId && ind.clinicalDiagnosis && ind.dateOfBirth)
-                                .map((ind) => (
-                                    <div
-                                        key={ind.id}
-                                        className="p-4 border rounded shadow hover:bg-gray-100 cursor-pointer"
-                                        onClick={() => navigate(`/individuals/${ind.id}`)}
-                                    >
-                                        <h4 className="text-lg font-semibold">Study ID: {ind.studyId}</h4>
-                                        <p>Sex: {ind.sexLabel}</p>
-                                        <p>Clinical Diagnosis: {ind.clinicalDiagnosis}</p>
-                                        <p className="text-sm text-gray-500">{ind.dateOfBirth}</p>
-                                        <p className="text-sm">{ind.proband ? 'Proband' : 'Not proband'}</p>
-                                    </div>
-                                ))}
-                        </div>
-                    )}
+                    <h3>Pedigree Members</h3>
+                    <div className="grid grid-cols-3 gap-4 mt-4">
+                        {individuals.map((ind) => (
+                            <div
+                                key={ind.id}
+                                className="p-4 border rounded shadow hover:bg-gray-100 cursor-pointer"
+                                onClick={() => navigate(`/individuals/${ind.id}`)}
+                            >
+                                <h4 className="text-lg font-semibold">Study ID: {ind.studyId}</h4>
+                                <p>Sex: {ind.sexLabel}</p>
+                                <p>Clinical Diagnosis: {ind.clinicalDiagnosis}</p>
+                                <p className="text-sm text-gray-500">{ind.dateOfBirth}</p>
+                                <p className="text-sm">{ind.proband ? 'Proband' : 'Not proband'}</p>
+                            </div>
+                        ))}
+                    </div>
                 </>
             )}
 

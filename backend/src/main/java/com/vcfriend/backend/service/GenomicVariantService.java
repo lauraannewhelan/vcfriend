@@ -2,7 +2,6 @@ package com.vcfriend.backend.service;
 
 import com.vcfriend.backend.model.GenomicVariant;
 import com.vcfriend.backend.repository.GenomicVariantRepository;
-import lombok.RequiredArgsConstructor;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
@@ -17,10 +16,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-@RequiredArgsConstructor
 public class GenomicVariantService {
 
     private final GenomicVariantRepository repository;
+
+    // ✅ Manual constructor to satisfy Spring since Lombok isn't working
+    public GenomicVariantService(GenomicVariantRepository repository) {
+        this.repository = repository;
+    }
 
     public List<GenomicVariant> getAllVariants() {
         return repository.findAll();
@@ -37,6 +40,10 @@ public class GenomicVariantService {
     public List<GenomicVariant> getVariantsByIndividualId(Long individualId) {
         System.out.println("🔍 Fetching variants for individual ID: " + individualId);
         return repository.findByIndividualId(individualId);
+    }
+
+    public List<GenomicVariant> getVariantsByVariantString(String variant) {
+        return repository.findByVariantContainingIgnoreCase(variant);
     }
 
     public void processAnnotatedCsv(MultipartFile file) throws IOException {
@@ -80,11 +87,4 @@ public class GenomicVariantService {
                 : record.isMapped("\uFEFF" + key) ? record.get("\uFEFF" + key)
                 : null;
     }
-
-
-    public List<GenomicVariant> getVariantsByVariantString(String variant) {
-        return repository.findByVariantContainingIgnoreCase(variant);
-    }
-
-
 }

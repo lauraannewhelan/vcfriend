@@ -2,7 +2,6 @@ package com.vcfriend.backend.watcher;
 
 import com.vcfriend.backend.service.VcfParserService;
 import jakarta.annotation.PostConstruct;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
@@ -11,12 +10,16 @@ import java.nio.file.*;
 import static java.nio.file.StandardWatchEventKinds.ENTRY_CREATE;
 
 @Component
-@RequiredArgsConstructor
 public class CsvFolderWatcher {
 
     private static final String FOLDER_TO_WATCH = "src/vcf_storage";
 
     private final VcfParserService parserService;
+
+    // ✅ Manual constructor because Lombok isn't working
+    public CsvFolderWatcher(VcfParserService parserService) {
+        this.parserService = parserService;
+    }
 
     @PostConstruct
     public void watchCsvFolder() {
