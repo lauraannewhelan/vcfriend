@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -28,14 +29,13 @@ public class IndividualService {
 
     public List<IndividualDTO> getByPedigreeId(String pedigreeId) {
         List<Individual> individuals = individualRepository.findByPedigree_PedigreeId(pedigreeId);
-
-        System.out.println("🔍 JPA returned " + individuals.size() + " individuals for pedigreeId: " + pedigreeId);
-        for (Individual i : individuals) {
-            System.out.println("👤 " + i.getName() + " (ID " + i.getId() + ")");
+        System.out.println("📢 Found " + individuals.size() + " individuals for pedigree: " + pedigreeId);
+        for (Individual ind : individuals) {
+            System.out.println("🧬 " + ind.getStudyId());
         }
-
         return individualMapper.toDTOList(individuals);
     }
+
 
     public Individual getById(Long id) {
         return individualRepository.findById(id).orElse(null);
@@ -50,8 +50,6 @@ public class IndividualService {
 
         individual.setPedigree(pedigree);
         individualRepository.save(individual);
-
-        System.out.println("✅ Relinked individual " + individual.getName() + " to pedigree " + pedigreeId);
     }
 
     public List<Individual> getAllIndividuals() {
@@ -66,15 +64,33 @@ public class IndividualService {
         individualRepository.save(individual);
     }
 
+    public Individual createFromDTO(IndividualDTO dto) {
+        // Check for duplicate studyId
+        individualRepository.findByStudyId(dto.getStudyId()).ifPresent(existing -> {
+            throw new IllegalArgumentException("Individual with Study ID '" + dto.getStudyId() + "' already exists.");
+        });
+
+        Pedigree pedigree = pedigreeRepository.findById(dto.getPedigreeId())
+                .orElseThrow(() -> new RuntimeException("Pedigree not found: " + dto.getPedigreeId()));
+
+        Individual individual = new Individual();
+        individual.setStudyId(dto.getStudyId());
+        individual.setClinicalDiagnosis(dto.getClinicalDiagnosis());
+        if (dto.getDateOfBirth() != null && !dto.getDateOfBirth().isBlank()) {
+            individual.setDateOfBirth(LocalDate.parse(dto.getDateOfBirth()));
+        }
+        individual.setProband(dto.getProband());
+        individual.setSexLabel(dto.getSexLabel());
+        individual.setPedigree(pedigree);
+
+        return individualRepository.save(individual);
+    }
+
     public List<String> getVariantsFromVCF(Long individualId) {
         String rootPath = System.getProperty("user.dir");
         File vcf = new File(rootPath + "/vcf_storage/" + individualId + ".vcf");
 
-        System.out.println("📍 Working directory: " + rootPath);
-        System.out.println("📂 Looking for VCF at: " + vcf.getAbsolutePath());
-
         if (!vcf.exists()) {
-            System.out.println("❌ File not found");
             return List.of("No VCF file found.");
         }
 
@@ -83,8 +99,7 @@ public class IndividualService {
                     .stream()
                     .map(variant -> variant.getContig() + "\t" + variant.getStart() + "\t" +
                             variant.getReference().getBaseString() + " → " +
-                            variant.getAlternateAlleles().stream()
-                                    .map(Object::toString).collect(Collectors.joining(",")))
+                            variant.getAlternateAlleles().stream().map(Object::toString).collect(Collectors.joining(",")))
                     .collect(Collectors.toList());
         }
     }

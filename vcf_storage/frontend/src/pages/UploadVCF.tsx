@@ -1,4 +1,4 @@
-// src/pages/UploadVCF.tsx
+// src/pages/UploadData.tsx
 import React, { useState } from 'react';
 
 // Explicitly define event type as a file input event

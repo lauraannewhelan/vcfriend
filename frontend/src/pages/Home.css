@@ -2,32 +2,34 @@
 
 .home-container {
     font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
-    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
     background-color: #ffffff;
     color: #2c3e50;
-    min-height: 100vh;
+    padding: 40px 20px;
 }
 
 .content-wrapper {
+    flex: 1;
     max-width: 1100px;
     margin: 0 auto;
     text-align: center;
 }
 
 .main-title {
-    text-align: center; /* Centers the title */
+    text-align: center;
     font-size: 2.5rem;
     font-weight: 600;
     color: #2c3e50;
 }
 
 .centered-text {
-    text-align: center; /* Centers the description text */
-    margin-top: 20px;   /* Optional space between the title and description */
+    text-align: center;
+    margin-top: 20px;
     font-size: 1.2rem;
     color: #333;
 }
-
 
 .subheading,
 .description {
@@ -110,4 +112,39 @@
 
 .card .text-gray-500 {
     color: #90a4ae;
+}
+
+.clickable-row:hover {
+    background-color: #f2f2f2;
+}
+
+.expanded-row {
+    background-color: #fafafa;
+    border-top: 1px solid #ddd;
+}
+
+.expanded-content {
+    padding: 10px;
+    line-height: 1.6;
+    font-size: 0.95rem;
+    color: #333;
+}
+
+.bottom-banner {
+    padding: 20px 0;
+    background-color: #f5f7fa;
+    text-align: center;
+    margin-top: auto; /* Pushes banner to bottom */
+}
+
+.bottom-banner img {
+    max-width: 180px;
+    height: auto;
+    opacity: 0.9;
+}
+.banner-caption {
+    margin-top: 10px;
+    font-size: 1rem;
+    color: #4a4a4a;
+    font-weight: 500;
 }

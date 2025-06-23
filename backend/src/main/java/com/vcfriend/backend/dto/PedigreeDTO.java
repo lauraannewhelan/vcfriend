@@ -7,6 +7,7 @@ public class PedigreeDTO {
     private String disease;
     private Integer numSubjects;
     private List<String> members;
+    private String geneticDiagnosis;  // New field
 
     public String getPedigreeId() {
         return pedigreeId;
@@ -38,5 +39,13 @@ public class PedigreeDTO {
 
     public void setMembers(List<String> members) {
         this.members = members;
+    }
+
+    public String getGeneticDiagnosis() {
+        return geneticDiagnosis;
+    }
+
+    public void setGeneticDiagnosis(String geneticDiagnosis) {
+        this.geneticDiagnosis = geneticDiagnosis;
     }
 }

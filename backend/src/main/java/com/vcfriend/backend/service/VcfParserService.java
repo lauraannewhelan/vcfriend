@@ -2,82 +2,79 @@ package com.vcfriend.backend.service;
 
 import com.vcfriend.backend.model.GenomicVariant;
 import com.vcfriend.backend.repository.GenomicVariantRepository;
-import com.vcfriend.backend.repository.IndividualRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
+import org.apache.commons.csv.CSVFormat;
+import org.apache.commons.csv.CSVParser;
+import org.apache.commons.csv.CSVRecord;
 import org.springframework.stereotype.Service;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.nio.file.*;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Paths;
+import java.util.*;
 
 @Service
+@RequiredArgsConstructor
 public class VcfParserService {
 
-    @Autowired
-    private GenomicVariantRepository genomicVariantRepository;
+    private final GenomicVariantRepository repository;
 
-    @Autowired
-    private IndividualRepository individualRepository;
+    public void parseAndStoreCsv(String filePath) {
+        List<GenomicVariant> variants = new ArrayList<>();
+        Set<String> seen = new HashSet<>(); // ✅ Tracks duplicates
 
-    private static final String GENOME_BUILD = "GRCh38";
+        String fileName = Paths.get(filePath).getFileName().toString();
+        int individualId = Integer.parseInt(fileName.replace(".csv", ""));
 
-    public void parseAndStoreVcf(String filePath) {
-        try (BufferedReader reader = Files.newBufferedReader(Paths.get(filePath))) {
-            String line;
-            int count = 0, skipped = 0;
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(filePath), StandardCharsets.UTF_8));
+             CSVParser csvParser = new CSVParser(reader, CSVFormat.DEFAULT.withFirstRecordAsHeader().withIgnoreHeaderCase().withTrim())) {
 
-            // 🔹 Extract individualId from filename (e.g., "7.vcf" → 7)
-            String filename = Paths.get(filePath).getFileName().toString();
-            String base = filename.contains(".") ? filename.substring(0, filename.lastIndexOf('.')) : filename;
-            Integer individualId = Integer.parseInt(base);
+            for (CSVRecord record : csvParser) {
+                String chr = safeGet(record, "Chr");
+                String start = safeGet(record, "Start");
+                String end = safeGet(record, "End");
+                String ref = safeGet(record, "Ref");
+                String alt = safeGet(record, "Alt");
+                String variantString = safeGet(record, "variant");
 
-            // 🔸 Validate that the individual exists
-            if (!individualRepository.existsById(Long.valueOf(individualId))) {
-                System.err.println("❌ Individual ID " + individualId + " not found. Aborting parse for file: " + filePath);
-                return;
-            }
+                // ✅ Create a unique key
+                String key = individualId + "|" + chr + "|" + start + "|" + end + "|" + ref + "|" + alt + "|" + variantString;
 
-            while ((line = reader.readLine()) != null) {
-                if (line.startsWith("#")) continue;
-
-                String[] fields = line.split("\t");
-                if (fields.length < 5) continue;
-
-                String chrom = fields[0];
-                int pos = Integer.parseInt(fields[1]);
-                String ref = fields[3];
-                String alt = fields[4];
-
-                String fullReferenceName = GENOME_BUILD + "-" + chrom + "-" + pos + "-" + ref + "-" + alt;
-
-                // ✅ Skip only if this individual already has this variant
-                if (genomicVariantRepository.existsByVariantInternalIdAndIndividualId(fullReferenceName, individualId)) {
-                    skipped++;
-                    continue;
-                }
+                if (seen.contains(key)) continue; // ✅ Skip duplicates
+                seen.add(key);
 
                 GenomicVariant variant = new GenomicVariant();
-                variant.setReferenceName(fullReferenceName);
-                variant.setStartPos(pos);
-                variant.setEndPos(pos + ref.length());
-                variant.setReferenceBases(ref);
-                variant.setAlternateBases(alt);
-                variant.setVariantType(ref.length() == alt.length() ? "SNP" : "INDEL");
-                variant.setVariantInternalId(fullReferenceName);
-                variant.setIndividualId(individualId);
+                variant.setIndividualId((long) individualId);
+                variant.setChr(chr);
+                variant.setStart(start);
+                variant.setEnd(end);
+                variant.setRef(ref);
+                variant.setAlt(alt);
+                variant.setFuncRefgene(safeGet(record, "Func.refGene"));
+                variant.setGeneRefgene(safeGet(record, "Gene.refGene"));
+                variant.setGenedetailRefgene(safeGet(record, "GeneDetail.refGene"));
+                variant.setExonicfuncRefgene(safeGet(record, "ExonicFunc.refGene"));
+                variant.setAachangeRefgene(safeGet(record, "AAChange.refGene"));
+                variant.setRevel(safeGet(record, "REVEL"));
+                variant.setOmim(safeGet(record, "OMIM"));
+                variant.setGt(safeGet(record, "GT"));
+                variant.setBa1(safeGet(record, "BA1"));
+                variant.setVariant(variantString);
+                variant.setInheritance(safeGet(record, "Inheritance"));
+                variant.setGnomad40GenomeAf(safeGet(record, "gnomad40_genome_AF"));
 
-                genomicVariantRepository.save(variant);
-                count++;
+                variants.add(variant);
             }
 
-            System.out.println("✅ Parsed and saved " + count + " variants from: " + filePath);
-            if (skipped > 0) {
-                System.out.println("⚠️ Skipped " + skipped + " duplicate variants for individual ID " + individualId);
-            }
-
-        } catch (IOException | NumberFormatException e) {
-            System.err.println("❌ Error processing VCF file: " + filePath);
+            repository.saveAll(variants);
+        } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    private String safeGet(CSVRecord record, String key) {
+        return record.isMapped(key) ? record.get(key)
+                : record.isMapped("\uFEFF" + key) ? record.get("\uFEFF" + key)
+                : null;
     }
 }

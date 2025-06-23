@@ -1,287 +1,72 @@
 package com.vcfriend.backend.model;
 
-import com.vladmihalcea.hibernate.type.json.JsonType;
 import jakarta.persistence.*;
-import org.hibernate.annotations.Type;
-
-import java.util.List;
-import java.util.Map;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
-@Table(
-        name = "genomic_variant",
-        uniqueConstraints = {
-                @UniqueConstraint(columnNames = {"variant_internal_id", "individual_id"})
-        }
-)
+@Table(name = "genomic_variant")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class GenomicVariant {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "variant_internal_id")
-    private String variantInternalId;
-
-    private String referenceName;
-    private Integer startPos;
-    private Integer endPos;
-    private String referenceBases;
-    private String alternateBases;
-    private String variantType;
-
-    @ElementCollection
-    private List<String> geneIds;
-
-    @ElementCollection
-    private List<String> molecularEffects;
-
-    @ElementCollection
-    private List<String> aminoacidChanges;
-
-    @Type(JsonType.class)
-    @Column(columnDefinition = "jsonb")
-    private Map<String, Object> genomicFeatures;
-
-    private String clinvarVariantId;
-    private String genomicHgvsId;
-
-    @ElementCollection
-    private List<String> proteinHgvsIds;
-
-    @ElementCollection
-    private List<String> transcriptHgvsIds;
-
-    @ElementCollection
-    private List<String> variantAlternativeIds;
-
-    @Type(JsonType.class)
-    @Column(columnDefinition = "jsonb")
-    private Map<String, Object> clinicalInterpretations;
-
-    @Type(JsonType.class)
-    @Column(columnDefinition = "jsonb")
-    private Map<String, Object> phenotypicEffects;
-
-    @Type(JsonType.class)
-    @Column(columnDefinition = "jsonb")
-    private Map<String, Object> frequencyInPopulations;
-
-    @Type(JsonType.class)
-    @Column(columnDefinition = "jsonb")
-    private Map<String, Object> info;
-
-    // ✅ FIXED — now explicitly mapped to match the DB column
     @Column(name = "individual_id")
-    private Integer individualId;
-    private String biosampleId;
-    private String runId;
-    private String analysisId;
-    private String datasetId;
+    private Long individualId;
 
-    // Getters and Setters
+    @Column(name = "Chr")
+    private String chr;
 
-    public Long getId() {
-        return id;
-    }
+    @Column(name = "Start")
+    private String start;
 
-    public String getVariantInternalId() {
-        return variantInternalId;
-    }
+    @Column(name = "\"End\"")
+    private String end;
 
-    public void setVariantInternalId(String variantInternalId) {
-        this.variantInternalId = variantInternalId;
-    }
+    @Column(name = "Ref")
+    private String ref;
 
-    public String getReferenceName() {
-        return referenceName;
-    }
+    @Column(name = "Alt")
+    private String alt;
 
-    public void setReferenceName(String referenceName) {
-        this.referenceName = referenceName;
-    }
+    @Column(name = "Func.refGene")
+    private String funcRefgene;
 
-    public Integer getStartPos() {
-        return startPos;
-    }
+    @Column(name = "Gene.refGene")
+    private String geneRefgene;
 
-    public void setStartPos(Integer startPos) {
-        this.startPos = startPos;
-    }
+    @Column(name = "GeneDetail.refGene", columnDefinition = "TEXT")
+    private String genedetailRefgene;
 
-    public Integer getEndPos() {
-        return endPos;
-    }
+    @Column(name = "ExonicFunc.refGene")
+    private String exonicfuncRefgene;
 
-    public void setEndPos(Integer endPos) {
-        this.endPos = endPos;
-    }
+    @Column(name = "AAChange.refGene", columnDefinition = "TEXT")
+    private String aachangeRefgene;
 
-    public String getReferenceBases() {
-        return referenceBases;
-    }
+    @Column(name = "REVEL")
+    private String revel;
 
-    public void setReferenceBases(String referenceBases) {
-        this.referenceBases = referenceBases;
-    }
+    @Column(name = "OMIM", columnDefinition = "TEXT")
+    private String omim;
 
-    public String getAlternateBases() {
-        return alternateBases;
-    }
+    @Column(name = "GT")
+    private String gt;
 
-    public void setAlternateBases(String alternateBases) {
-        this.alternateBases = alternateBases;
-    }
+    @Column(name = "BA1")
+    private String ba1;
 
-    public String getVariantType() {
-        return variantType;
-    }
+    @Column(name = "variant", columnDefinition = "TEXT")
+    private String variant;
 
-    public void setVariantType(String variantType) {
-        this.variantType = variantType;
-    }
+    @Column(name = "Inheritance")
+    private String inheritance;
 
-    public List<String> getGeneIds() {
-        return geneIds;
-    }
-
-    public void setGeneIds(List<String> geneIds) {
-        this.geneIds = geneIds;
-    }
-
-    public List<String> getMolecularEffects() {
-        return molecularEffects;
-    }
-
-    public void setMolecularEffects(List<String> molecularEffects) {
-        this.molecularEffects = molecularEffects;
-    }
-
-    public List<String> getAminoacidChanges() {
-        return aminoacidChanges;
-    }
-
-    public void setAminoacidChanges(List<String> aminoacidChanges) {
-        this.aminoacidChanges = aminoacidChanges;
-    }
-
-    public Map<String, Object> getGenomicFeatures() {
-        return genomicFeatures;
-    }
-
-    public void setGenomicFeatures(Map<String, Object> genomicFeatures) {
-        this.genomicFeatures = genomicFeatures;
-    }
-
-    public String getClinvarVariantId() {
-        return clinvarVariantId;
-    }
-
-    public void setClinvarVariantId(String clinvarVariantId) {
-        this.clinvarVariantId = clinvarVariantId;
-    }
-
-    public String getGenomicHgvsId() {
-        return genomicHgvsId;
-    }
-
-    public void setGenomicHgvsId(String genomicHgvsId) {
-        this.genomicHgvsId = genomicHgvsId;
-    }
-
-    public List<String> getProteinHgvsIds() {
-        return proteinHgvsIds;
-    }
-
-    public void setProteinHgvsIds(List<String> proteinHgvsIds) {
-        this.proteinHgvsIds = proteinHgvsIds;
-    }
-
-    public List<String> getTranscriptHgvsIds() {
-        return transcriptHgvsIds;
-    }
-
-    public void setTranscriptHgvsIds(List<String> transcriptHgvsIds) {
-        this.transcriptHgvsIds = transcriptHgvsIds;
-    }
-
-    public List<String> getVariantAlternativeIds() {
-        return variantAlternativeIds;
-    }
-
-    public void setVariantAlternativeIds(List<String> variantAlternativeIds) {
-        this.variantAlternativeIds = variantAlternativeIds;
-    }
-
-    public Map<String, Object> getClinicalInterpretations() {
-        return clinicalInterpretations;
-    }
-
-    public void setClinicalInterpretations(Map<String, Object> clinicalInterpretations) {
-        this.clinicalInterpretations = clinicalInterpretations;
-    }
-
-    public Map<String, Object> getPhenotypicEffects() {
-        return phenotypicEffects;
-    }
-
-    public void setPhenotypicEffects(Map<String, Object> phenotypicEffects) {
-        this.phenotypicEffects = phenotypicEffects;
-    }
-
-    public Map<String, Object> getFrequencyInPopulations() {
-        return frequencyInPopulations;
-    }
-
-    public void setFrequencyInPopulations(Map<String, Object> frequencyInPopulations) {
-        this.frequencyInPopulations = frequencyInPopulations;
-    }
-
-    public Map<String, Object> getInfo() {
-        return info;
-    }
-
-    public void setInfo(Map<String, Object> info) {
-        this.info = info;
-    }
-
-    public Integer getIndividualId() {
-        return individualId;
-    }
-
-    public void setIndividualId(Integer individualId) {
-        this.individualId = individualId;
-    }
-
-    public String getBiosampleId() {
-        return biosampleId;
-    }
-
-    public void setBiosampleId(String biosampleId) {
-        this.biosampleId = biosampleId;
-    }
-
-    public String getRunId() {
-        return runId;
-    }
-
-    public void setRunId(String runId) {
-        this.runId = runId;
-    }
-
-    public String getAnalysisId() {
-        return analysisId;
-    }
-
-    public void setAnalysisId(String analysisId) {
-        this.analysisId = analysisId;
-    }
-
-    public String getDatasetId() {
-        return datasetId;
-    }
-
-    public void setDatasetId(String datasetId) {
-        this.datasetId = datasetId;
-    }
+    @Column(name = "gnomad40_genome_AF")
+    private String gnomad40GenomeAf;
 }

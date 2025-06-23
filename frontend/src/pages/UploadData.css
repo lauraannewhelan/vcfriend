@@ -1,0 +1,105 @@
+.variant-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+}
+
+.variant-card {
+    background-color: #f9fbfd;
+    padding: 40px;
+    border-radius: 16px;
+    width: 100%;
+    max-width: 700px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    text-align: center;
+}
+
+.variant-card h2 {
+    font-size: 2rem;
+    color: #2c3e50;
+    margin-bottom: 25px;
+}
+
+.variant-card h4 {
+    font-size: 1.2rem;
+    color: #2c3e50;
+    margin-top: 20px;
+    margin-bottom: 12px;
+    text-align: left;
+}
+
+.variant-card input,
+.variant-card select {
+    padding: 14px 20px;
+    font-size: 1rem;
+    width: 100%;
+    max-width: 500px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    margin-bottom: 12px;
+}
+
+.variant-card input[type="checkbox"] {
+    width: auto;
+    margin-left: 10px;
+}
+
+.variant-card label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+    font-size: 1rem;
+    color: #333;
+}
+
+.variant-card button {
+    background-color: #2c5282;
+    color: white;
+    padding: 14px 24px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.variant-card button:hover {
+    background-color: #1a365d;
+}
+
+.variant-help {
+    display: block;
+    font-size: 0.9rem;
+    color: #2c5282;
+    margin-top: 20px;
+}
+
+.variant-error {
+    color: #cc0000;
+    margin-top: 20px;
+    font-weight: 500;
+}
+
+.proband-checkbox {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 10px auto 16px auto;
+    max-width: 500px;
+}
+
+.proband-checkbox input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    margin-right: 12px;
+    accent-color: #2c5282; /* ✅ optional styling for modern browsers */
+    cursor: pointer;
+}
+
+.proband-checkbox label {
+    font-size: 1rem;
+    color: #2c3e50;
+    cursor: pointer;
+}

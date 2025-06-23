@@ -2,44 +2,58 @@ package com.vcfriend.backend.controller;
 
 import com.vcfriend.backend.model.GenomicVariant;
 import com.vcfriend.backend.service.GenomicVariantService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/genomic-variants")
-@CrossOrigin(origins = "*")
+@RequestMapping("/api/variants")
+@RequiredArgsConstructor
 public class GenomicVariantController {
 
-    @Autowired
-    private GenomicVariantService genomicVariantService;
+    private final GenomicVariantService variantService;
 
-    @GetMapping("/search")
-    public List<GenomicVariant> searchVariants(@RequestParam String variantInternalId) {
-        return genomicVariantService.getVariantsByVariantInternalId(variantInternalId);
+    @GetMapping
+    public ResponseEntity<List<GenomicVariant>> getAllVariants() {
+        return ResponseEntity.ok(variantService.getAllVariants());
     }
 
-    @GetMapping("/search-by-coordinates")
-    public List<GenomicVariant> searchByCoordinates(
-            @RequestParam String referenceName,
-            @RequestParam int startPos,
-            @RequestParam String referenceBases,
-            @RequestParam String alternateBases) {
-
-        String chromosome = referenceName;
-        return genomicVariantService.findByCoordinates(chromosome, startPos, referenceBases, alternateBases);
+    @GetMapping("/gene")
+    public ResponseEntity<List<GenomicVariant>> getVariantsByGene(@RequestParam String gene) {
+        return ResponseEntity.ok(variantService.getVariantsByGene(gene));
     }
 
-    // ✅ New endpoint: return a list of individual IDs
-    @GetMapping("/individuals-by-variant")
-    public List<Integer> getIndividualsForVariant(
-            @RequestParam String referenceName,
-            @RequestParam int startPos,
-            @RequestParam String referenceBases,
-            @RequestParam String alternateBases) {
+    @GetMapping("/function")
+    public ResponseEntity<List<GenomicVariant>> getVariantsByFunction(@RequestParam String func) {
+        return ResponseEntity.ok(variantService.getVariantsByFunc(func));
+    }
 
-        String chromosome = referenceName;
-        return genomicVariantService.findIndividualIdsByCoordinates(chromosome, startPos, referenceBases, alternateBases);
+    @GetMapping("/individual")
+    public ResponseEntity<List<GenomicVariant>> getVariantsByParticipantId(@RequestParam Integer id) {
+        return ResponseEntity.ok(variantService.getVariantsByIndividualId(Long.valueOf(id)));
+    }
+
+    @GetMapping("/search-by-variant")
+    public ResponseEntity<List<GenomicVariant>> searchByVariant(@RequestParam String variant) {
+        List<GenomicVariant> matches = variantService.getVariantsByVariantString(variant);
+        if (matches.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(List.of());
+        }
+        return ResponseEntity.ok(matches);
+    }
+
+    @PostMapping("/upload/csv")
+    public ResponseEntity<String> uploadAnnotatedCsv(@RequestParam("file") MultipartFile file) {
+        try {
+            variantService.processAnnotatedCsv(file);
+            return ResponseEntity.ok("Annotated CSV uploaded and processed successfully.");
+        } catch (IOException e) {
+            return ResponseEntity.status(500).body("Failed to process CSV: " + e.getMessage());
+        }
     }
 }

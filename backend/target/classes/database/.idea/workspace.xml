@@ -5,30 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3fb7f1da-bf8e-4f5f-b3ab-2d8007784da6" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/tsconfig.tsbuildinfo" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/tsconfig.tsbuildinfo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/default-development/9.pack" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/default-development/index.pack" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/default-development/index.pack.old" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/default-development/index.pack.old" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/tsconfig.tsbuildinfo" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/tsconfig.tsbuildinfo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/default-development/9.pack" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/default-development/9.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/default-development/index.pack" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/default-development/index.pack.old" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/default-development/index.pack.old" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/target/classes/backend/target/classes/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/tsconfig.tsbuildinfo" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/target/classes/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/default-development/9.pack" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/target/classes/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/default-development/9.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/target/classes/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/default-development/index.pack" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/target/classes/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/default-development/index.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/target/classes/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/default-development/index.pack.old" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/target/classes/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/default-development/index.pack.old" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/target/classes/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/tsconfig.tsbuildinfo" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/target/classes/backend/target/classes/backend/target/classes/frontend/node_modules/.cache/tsconfig.tsbuildinfo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/target/classes/backend/target/classes/frontend/node_modules/.cache/default-development/index.pack.old" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/target/classes/backend/target/classes/frontend/node_modules/.cache/default-development/index.pack.old" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/target/classes/backend/target/classes/frontend/node_modules/.cache/tsconfig.tsbuildinfo" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/target/classes/backend/target/classes/frontend/node_modules/.cache/tsconfig.tsbuildinfo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/target/classes/backend/target/classes/frontend/src/pages/Login.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/target/classes/frontend/node_modules/.cache/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/target/classes/frontend/node_modules/.cache/.eslintcache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/target/classes/frontend/node_modules/.cache/default-development/0.pack" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/target/classes/frontend/node_modules/.cache/default-development/0.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/target/classes/frontend/node_modules/.cache/default-development/11.pack" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/target/classes/frontend/node_modules/.cache/default-development/11.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/target/classes/frontend/node_modules/.cache/default-development/index.pack" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/target/classes/frontend/node_modules/.cache/default-development/index.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/target/classes/frontend/node_modules/.cache/default-development/index.pack.old" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/target/classes/frontend/node_modules/.cache/default-development/index.pack.old" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/target/classes/frontend/node_modules/.cache/tsconfig.tsbuildinfo" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/target/classes/frontend/node_modules/.cache/tsconfig.tsbuildinfo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/target/classes/frontend/src/pages/Login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/target/classes/frontend/src/pages/Login.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/Login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/Login.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/public/hgrg-banner.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/src/pages/UploadData.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/src/pages/UploadData.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/com/vcfriend/backend/controller/IndividualController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/com/vcfriend/backend/controller/IndividualController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/com/vcfriend/backend/controller/PedigreeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/com/vcfriend/backend/controller/PedigreeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/com/vcfriend/backend/dto/IndividualDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/com/vcfriend/backend/dto/IndividualDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/com/vcfriend/backend/service/IndividualService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/com/vcfriend/backend/service/IndividualService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/Home.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/Home.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/Home.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/Individual.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/Individual.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/UploadVCF.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/VariantBrowser.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/VariantBrowser.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/VariantBrowser.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/VariantBrowser.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vcf_storage/frontend/src/pages/UploadVCF.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../vcf_storage/frontend/src/pages/UploadVCF.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,20 +37,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/laurawhelan/IdeaProjects/vcfriend/database&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "database.data.extractors.current.export.id": "Comma-separated (CSV)_id",
+    "database.data.extractors.current.id": "Comma-separated (CSV)_id",
+    "git-widget-placeholder": "epilepsy__version",
+    "last_opened_file_path": "/Users/laurawhelan/IdeaProjects/vcfriend/database"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;postgresql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
     ]
   }
-}</component>
+}]]></component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="3fb7f1da-bf8e-4f5f-b3ab-2d8007784da6" name="Changes" comment="" />

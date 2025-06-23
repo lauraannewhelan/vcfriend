@@ -1,18 +1,29 @@
-import React, { useEffect, useState } from 'react';
-import axios from '../api/axios'; // ✅ Use configured instance
+import React, { useState } from 'react';
+import axios from '../api/axios';
 import { useNavigate } from 'react-router-dom';
 import './Home.css';
 
+interface Individual {
+    id: number;
+    studyId: string;
+    clinicalDiagnosis: string;
+    dateOfBirth: string;
+    proband: boolean;
+    sexLabel: string;
+}
+
 interface Pedigree {
-    pedigreeId: string;
+    pedigree_id: string;
     disease: string;
-    numSubjects: number;
+    num_subjects: number;
+    genetic_diagnosis: string;
+    individuals: Individual[];
 }
 
 const Home = () => {
     const [searchQuery, setSearchQuery] = useState('');
-    const [results, setResults] = useState<Pedigree[]>([]);
-    const [individuals, setIndividuals] = useState<any[]>([]);
+    const [results, setResults] = useState<Pedigree | null>(null);
+    const [individuals, setIndividuals] = useState<Individual[]>([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
     const navigate = useNavigate();
@@ -20,59 +31,36 @@ const Home = () => {
     const handleSearch = async () => {
         if (!searchQuery) return;
         setLoading(true);
+
         try {
-            const response = await axios.get(`/api/pedigrees/search`, {
+            const response = await axios.get('/api/pedigrees/search', {
                 params: { query: searchQuery },
             });
 
             if (response.data) {
-                setResults([response.data]);
+                console.log('📦 Full pedigree response:', response.data);
+                setResults(response.data);
+                setIndividuals(response.data.individuals || []);
                 setError(null);
             } else {
                 setError('No families found for this search.');
-                setResults([]);
+                setResults(null);
                 setIndividuals([]);
             }
         } catch (err) {
             console.error('❌ Failed to fetch pedigrees:', err);
             setError('Failed to fetch pedigrees.');
-            setResults([]);
+            setResults(null);
             setIndividuals([]);
         }
+
         setLoading(false);
     };
 
-    useEffect(() => {
-        const fetchIndividuals = async () => {
-            if (results.length > 0) {
-                try {
-                    const res = await axios.get(`/api/individuals/pedigrees/${results[0].pedigreeId}`);
-                    console.log('📦 Raw individuals from API:', res.data);
-
-                    const normalized = res.data.map((ind: any) => ({
-                        id: ind.id,
-                        name: ind.name,
-                        clinicalDiagnosis: ind.clinicalDiagnosis,
-                        dateOfBirth: ind.dateOfBirth,
-                        proband: ind.proband,
-                    }));
-
-                    console.log('✅ Normalized individuals:', normalized);
-                    setIndividuals(normalized);
-                } catch (err) {
-                    console.error('❌ Failed to fetch individuals:', err);
-                    setIndividuals([]);
-                }
-            }
-        };
-        fetchIndividuals();
-    }, [results]);
-
     return (
         <div className="home-container">
-        <h1 className="main-title">Welcome to VCFriend</h1>
-        <p className="centered-text">Your secure and user-friendly web application for genomic data analysis.</p>
-
+            <h1 className="main-title">Welcome to VCFriend</h1>
+            <p className="centered-text">Your secure and user-friendly web application for genomic data analysis.</p>
 
             <div className="search-family mt-4 mb-4">
                 <input
@@ -88,12 +76,11 @@ const Home = () => {
 
             {error && <p className="text-red-600">{error}</p>}
 
-            {results.length > 0 && (
+            {results && (
                 <>
                     <h3>Pedigree Results</h3>
-                    <p>
-                        <strong>{results[0].pedigreeId}</strong>: {results[0].disease} ({results[0].numSubjects} subjects)
-                    </p>
+                    <p>Clinical Diagnosis: {results.disease}</p>
+                    <p>Genetic Diagnosis: {results.genetic_diagnosis}</p>
 
                     <h3 className="mt-6">Members</h3>
 
@@ -102,15 +89,16 @@ const Home = () => {
                     ) : (
                         <div className="grid grid-cols-3 gap-4 mt-4">
                             {individuals
-                                .filter(ind => ind.name && ind.clinicalDiagnosis && ind.dateOfBirth)
+                                .filter(ind => ind.studyId && ind.clinicalDiagnosis && ind.dateOfBirth)
                                 .map((ind) => (
                                     <div
                                         key={ind.id}
                                         className="p-4 border rounded shadow hover:bg-gray-100 cursor-pointer"
                                         onClick={() => navigate(`/individuals/${ind.id}`)}
                                     >
-                                        <h4 className="text-lg font-semibold">{ind.name}</h4>
-                                        <p>{ind.clinicalDiagnosis}</p>
+                                        <h4 className="text-lg font-semibold">Study ID: {ind.studyId}</h4>
+                                        <p>Sex: {ind.sexLabel}</p>
+                                        <p>Clinical Diagnosis: {ind.clinicalDiagnosis}</p>
                                         <p className="text-sm text-gray-500">{ind.dateOfBirth}</p>
                                         <p className="text-sm">{ind.proband ? 'Proband' : 'Not proband'}</p>
                                     </div>
@@ -119,6 +107,11 @@ const Home = () => {
                     )}
                 </>
             )}
+
+            <div className="bottom-banner">
+                <img src="/hgrg-banner.png" alt="Human Genetics Research Group Logo" />
+                <p className="banner-caption">Human Genetics Research Group, RCSI</p>
+            </div>
         </div>
     );
 };
