@@ -30,67 +30,83 @@ public class IndividualController {
     @Autowired
     private GenomicVariantService genomicVariantService;
 
+    // Get all individuals for a given pedigree
     @GetMapping("/pedigrees/{pedigreeId}")
     public List<IndividualDTO> getIndividualsByPedigree(@PathVariable String pedigreeId) {
         return individualService.getByPedigreeId(pedigreeId);
     }
 
+    // Get a specific individual by ID
     @GetMapping("/{id}")
     public IndividualDTO getIndividualById(@PathVariable Long id) {
         Individual ind = individualService.getById(id);
         return individualMapper.toDTO(ind);
     }
 
+    // Update an existing individual
     @PutMapping("/{id}")
     public void updateIndividual(@PathVariable Long id, @RequestBody IndividualDTO updated) {
         Individual individual = individualService.getById(id);
         if (individual != null) {
-            individual.setName(updated.getName());
             individual.setClinicalDiagnosis(updated.getClinicalDiagnosis());
             individual.setDateOfBirth(LocalDate.parse(updated.getDateOfBirth()));
             individual.setProband(updated.getProband());
             individual.setSexLabel(updated.getSexLabel());
+            individual.setStudyId(updated.getStudyId());
             individualService.save(individual);
         }
     }
 
-    @PostMapping("/{id}/upload-vcf")
-    public ResponseEntity<String> uploadVCF(@PathVariable Long id,
-                                            @RequestParam("file") MultipartFile file) {
-        String storagePath = "src/vcf_storage/" + id + ".vcf";
+    // Create a new individual
+    @PostMapping
+    public ResponseEntity<IndividualDTO> createIndividual(@RequestBody IndividualDTO dto) {
+        Individual saved = individualService.createFromDTO(dto);
+        return ResponseEntity.status(201).body(individualMapper.toDTO(saved));
+    }
+
+    // Upload CSV to /vcf_storage
+    @PostMapping("/upload-csv")
+    public ResponseEntity<String> uploadCSV(@RequestParam("csv") MultipartFile file) {
+        String storagePath = System.getProperty("user.dir") + "/vcf_storage/" + file.getOriginalFilename();
         File dest = new File(storagePath);
+        dest.getParentFile().mkdirs(); // Create dir if missing
 
         try {
             file.transferTo(dest);
-            return ResponseEntity.ok("✅ File uploaded for individual " + id);
+            System.out.println("📄 CSV uploaded to: " + dest.getAbsolutePath());
+            return ResponseEntity.ok("✅ CSV uploaded to: " + dest.getAbsolutePath());
         } catch (IOException e) {
-            return ResponseEntity.status(500).body("❌ Failed to upload VCF: " + e.getMessage());
+            e.printStackTrace();
+            return ResponseEntity.status(500).body("❌ CSV upload failed: " + e.getMessage());
         }
     }
 
+    // Upload VCF file for a specific individual
+    @PostMapping("/{id}/upload-vcf")
+    public ResponseEntity<String> uploadVCF(@PathVariable Long id, @RequestParam("file") MultipartFile file) {
+        String storagePath = System.getProperty("user.dir") + "/vcf_storage/" + id + ".vcf";
+        File dest = new File(storagePath);
+        dest.getParentFile().mkdirs();
+
+        try {
+            file.transferTo(dest);
+            return ResponseEntity.ok("✅ VCF uploaded for individual " + id);
+        } catch (IOException e) {
+            e.printStackTrace();
+            return ResponseEntity.status(500).body("❌ VCF upload failed: " + e.getMessage());
+        }
+    }
+
+    // Relink an individual to a different pedigree
     @PostMapping("/relink/{individualId}/{pedigreeId}")
     public void relinkIndividualToPedigree(@PathVariable Long individualId, @PathVariable String pedigreeId) {
         individualService.relinkIndividual(individualId, pedigreeId);
     }
 
-    @GetMapping("/debug")
-    public List<Individual> debugAllIndividuals() {
-        return individualService.getAllIndividuals();
-    }
-
-    @GetMapping("/testrepo/{pedigreeId}")
-    public List<Individual> testRepo(@PathVariable String pedigreeId) {
-        return individualService.testRepoFindByPedigree(pedigreeId);
-    }
-
-
+    // Get variants for an individual
     @GetMapping("/{id}/variants")
     public ResponseEntity<List<GenomicVariant>> getVariantsFromDatabase(@PathVariable Long id) {
-        System.out.println("🧬 Fetching variants for individual ID: " + id);
         List<GenomicVariant> variants = genomicVariantService.getVariantsByIndividualId(id);
-
-        System.out.println("🔎 Found " + variants.size() + " variants");
         return ResponseEntity.ok(variants);
     }
-
 }

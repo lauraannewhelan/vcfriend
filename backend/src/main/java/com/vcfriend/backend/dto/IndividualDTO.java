@@ -2,11 +2,12 @@ package com.vcfriend.backend.dto;
 
 public class IndividualDTO {
     private Long id;
-    private String name;
     private String clinicalDiagnosis;
     private String dateOfBirth;
     private Boolean proband;
     private String sexLabel;
+    private String studyId;
+    private String pedigreeId;
 
     public Long getId() {
         return id;
@@ -14,14 +15,6 @@ public class IndividualDTO {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getClinicalDiagnosis() {
@@ -54,5 +47,21 @@ public class IndividualDTO {
 
     public void setSexLabel(String sexLabel) {
         this.sexLabel = sexLabel;
+    }
+
+    public String getStudyId() {
+        return studyId;
+    }
+
+    public void setStudyId(String studyId) {
+        this.studyId = studyId;
+    }
+
+    public String getPedigreeId() {
+        return pedigreeId;
+    }
+
+    public void setPedigreeId(String pedigreeId) {
+        this.pedigreeId = pedigreeId;
     }
 }

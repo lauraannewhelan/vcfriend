@@ -2,35 +2,43 @@ package com.vcfriend.backend.model;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import jakarta.persistence.*;
 import java.util.List;
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 @Entity
-@Table(name = "individual_pedigree")  // Ensure this matches your actual table name
+@Table(name = "individual_pedigree")
 public class Pedigree {
 
     @Id
-    @Column(name = "pedigree_id")  // Matches the column name in the table
+    @Column(name = "pedigree_id")
+    @JsonProperty("pedigree_id")
     private String pedigreeId;
 
+    @JsonProperty("disease")
     private String disease;
 
     @Column(name = "num_subjects")
+    @JsonProperty("num_subjects")
     private Integer numSubjects;
 
+    @JsonProperty("members")
     private String members;
 
     @Column(name = "genetic_diagnosis")
-    @JsonProperty("genetic_diagnosis")  // Maps JSON key to snake_case
+    @JsonProperty("genetic_diagnosis")
     private String geneticDiagnosis;
 
-    // One-to-many relationship with Individual
-    @OneToMany(mappedBy = "pedigree", fetch = FetchType.LAZY)  // Many Individuals belong to one Pedigree
-    @JsonManagedReference  // Prevent infinite recursion during JSON serialization
+    @Column(name = "clinical_diagnosis")
+    @JsonProperty("clinical_diagnosis")
+    private String clinicalDiagnosis;
+
+    @OneToMany(mappedBy = "pedigree", fetch = FetchType.LAZY)
+    @JsonManagedReference
     private List<Individual> individuals;
 
-    // Getters and setters
-
+    // Getters and Setters
     public String getPedigreeId() {
         return pedigreeId;
     }
@@ -69,6 +77,14 @@ public class Pedigree {
 
     public void setGeneticDiagnosis(String geneticDiagnosis) {
         this.geneticDiagnosis = geneticDiagnosis;
+    }
+
+    public String getClinicalDiagnosis() {
+        return clinicalDiagnosis;
+    }
+
+    public void setClinicalDiagnosis(String clinicalDiagnosis) {
+        this.clinicalDiagnosis = clinicalDiagnosis;
     }
 
     public List<Individual> getIndividuals() {

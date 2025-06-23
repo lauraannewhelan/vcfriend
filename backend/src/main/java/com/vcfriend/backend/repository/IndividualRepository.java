@@ -5,6 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface IndividualRepository extends JpaRepository<Individual, Long> {
@@ -14,4 +15,7 @@ public interface IndividualRepository extends JpaRepository<Individual, Long> {
 
     // ✅ Optional: Check if an individual exists by ID
     boolean existsById(Long id);
+
+    // ✅ NEW: Check for duplicate study ID
+    Optional<Individual> findByStudyId(String studyId);  // 💡 THIS LINE FIXES THE ERROR
 }

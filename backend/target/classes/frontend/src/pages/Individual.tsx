@@ -61,7 +61,7 @@ const IndividualPage = () => {
 
     return (
         <div className="individual-container">
-            <h2>{individual.name}</h2>
+            <h2>Participant ID: {individual.id}</h2>
 
             {!editing ? (
                 <>

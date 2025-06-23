@@ -36,7 +36,7 @@ const VariantBrowser = () => {
         }
     };
 
-    const summary = results[0]; // take first match for variant summary
+    const summary = results[0];
 
     return (
         <div className="variant-container">
@@ -66,6 +66,17 @@ const VariantBrowser = () => {
                             <li><strong>Ref / Alt:</strong> {summary.ref} / {summary.alt}</li>
                             <li><strong>Function:</strong> {summary.funcRefgene}</li>
                             <li><strong>REVEL:</strong> {summary.revel}</li>
+                            <li>
+                                <strong>gnomAD Link:</strong>{' '}
+                                <a
+                                    href={`https://gnomad.broadinstitute.org/variant/${summary.chr}-${summary.start}-${summary.ref}-${summary.alt}?dataset=gnomad_r4`}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="gnomad-link"
+                                >
+                                    View in gnomAD
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 )}

@@ -94,3 +94,13 @@
     font-size: 0.95rem;
     color: #333;
 }
+
+.gnomad-link {
+    color: #2c5282;
+    font-weight: 500;
+    text-decoration: underline;
+}
+
+.gnomad-link:hover {
+    color: #1a365d;
+}

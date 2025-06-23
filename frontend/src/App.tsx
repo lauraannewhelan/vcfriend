@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Login from './pages/Login';
 import Home from './pages/Home';
 import IndividualPage from './pages/Individual';
-import UploadVCF from './pages/UploadVCF';
+import UploadVCF from './pages/UploadData';
 import VariantBrowser from './pages/VariantBrowser';
 import Shortlist from './pages/Shortlist';
 
